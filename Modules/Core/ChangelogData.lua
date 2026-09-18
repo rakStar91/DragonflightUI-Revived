@@ -24,6 +24,33 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- just the one after it.
 DF.ChangelogData = {
     {
+        version = '0.46.1',
+        title = 'Quest Scrollbar Fix',
+        date = '18 September 2026',
+        intro = 'Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and unified the scrollbar layout logic across all quest panels.',
+        sections = {
+            {
+                title = 'Highlights',
+                items = {
+                    'QuestFrame scrollbar in TBC 2.5.6 now uses the same Dragonflight track textures as the GossipFrame.',
+                    'Scrollbar layout unified across all four quest panels (detail, reward, progress, greeting).',
+                    'New /df log quest command for diagnosing quest and gossip frame scrollbar geometry.'
+                }
+            }, {
+                title = 'Quest',
+                items = {
+                    'Fixed scrollbar track textures on QuestFrame detail, reward, progress and greeting panels: replaced old classic track tiles with ui-scrollbar-endcap-top/bottom and ui-scrollbar-center atlas textures matching the GossipFrame style.',
+                    'Unified scrollbar layout into a single loop covering all four quest panels instead of per-panel duplicates.'
+                }
+            }, {
+                title = 'Debugging',
+                items = {
+                    'Added /df log quest command to dump QuestFrame and GossipFrame scrollbar positions, track sizes, and button anchors.'
+                }
+            }
+        }
+    },
+    {
         version = '0.46.0',
         title = 'Chat Edit Mode, Castbar Ticks & Localization',
         date = '12 September 2026',
