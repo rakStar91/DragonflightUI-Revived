@@ -2,10 +2,19 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.46.0`.
+May 2026). Current builds report version `0.46.1`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.46.1 — Quest Scrollbar Fix (18 September 2026)
+Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and unified the scrollbar layout logic across all quest panels.
+### Quest
+- Fixed scrollbar track textures on QuestFrame detail, reward, progress and greeting panels: replaced the old classic track tiles with `ui-scrollbar-endcap-top/bottom` and `ui-scrollbar-center` atlas textures matching the GossipFrame style.
+- Unified scrollbar layout into a single loop covering all four quest panels instead of per-panel duplicates.
+- Added `DF:LogQuestGossipState()` debug helper callable via `/df log quest` to dump full quest and gossip frame geometry.
+### Debugging
+- Added `/df log quest` command to log QuestFrame and GossipFrame scrollbar positions, track sizes, and button anchors.
 
 ## 0.46.0 — Chat Edit Mode, Castbar Ticks & Localization (12 September 2026)
 Fixed custom chat tab overlapping and selection issues in Edit Mode, restored channel ticks on MoP and TBC with target and focus support, added full localization coverage across German, Spanish, Russian and Simplified Chinese, and added an option to customize elite dragon coloring in Dark Mode.

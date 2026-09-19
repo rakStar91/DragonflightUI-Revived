@@ -75,28 +75,26 @@ function DragonflightUIMixin:ChangeQuestFrame()
     progress:SetSize(338, 496)
     greeting:SetSize(338, 496)
 
-    if DF.API.Version.IsTBC then
-        local slice = frame.NineSlice
-        if slice then
-            slice.TopLeftCorner = _G[frame:GetName() .. 'TopLeftCorner']
-            if slice.TopLeftCorner then slice.TopLeftCorner:Show() end
-            slice.TopRightCorner = _G[frame:GetName() .. 'TopRightCorner']
+    local slice = frame.NineSlice
+    if slice then
+        slice.TopLeftCorner = _G[frame:GetName() .. 'TopLeftCorner']
+        if slice.TopLeftCorner then slice.TopLeftCorner:Show() end
+        slice.TopRightCorner = _G[frame:GetName() .. 'TopRightCorner']
 
-            slice.BottomLeftCorner = _G[frame:GetName() .. 'BtnCornerLeft']
-            if _G[frame:GetName() .. 'BotLeftCorner'] then _G[frame:GetName() .. 'BotLeftCorner']:Hide() end
-            slice.BottomRightCorner = _G[frame:GetName() .. 'BtnCornerRight']
-            if _G[frame:GetName() .. 'BotRightCorner'] then _G[frame:GetName() .. 'BotRightCorner']:Hide() end
+        slice.BottomLeftCorner = _G[frame:GetName() .. 'BtnCornerLeft']
+        if _G[frame:GetName() .. 'BotLeftCorner'] then _G[frame:GetName() .. 'BotLeftCorner']:Hide() end
+        slice.BottomRightCorner = _G[frame:GetName() .. 'BtnCornerRight']
+        if _G[frame:GetName() .. 'BotRightCorner'] then _G[frame:GetName() .. 'BotRightCorner']:Hide() end
 
-            slice.TopEdge = _G[frame:GetName() .. 'TopBorder']
-            slice.BottomEdge = _G[frame:GetName() .. 'BottomBorder']
-            if _G[frame:GetName() .. 'ButtonBottomBorder'] then _G[frame:GetName() .. 'ButtonBottomBorder']:Hide() end
+        slice.TopEdge = _G[frame:GetName() .. 'TopBorder']
+        slice.BottomEdge = _G[frame:GetName() .. 'BottomBorder']
+        if _G[frame:GetName() .. 'ButtonBottomBorder'] then _G[frame:GetName() .. 'ButtonBottomBorder']:Hide() end
 
-            slice.LeftEdge = _G[frame:GetName() .. 'LeftBorder']
-            slice.RightEdge = _G[frame:GetName() .. 'RightBorder']
-        end
-
-        if _G['QuestFramePortraitFrame'] then _G['QuestFramePortraitFrame']:Hide() end
+        slice.LeftEdge = _G[frame:GetName() .. 'LeftBorder']
+        slice.RightEdge = _G[frame:GetName() .. 'RightBorder']
     end
+
+    if _G['QuestFramePortraitFrame'] then _G['QuestFramePortraitFrame']:Hide() end
 
     DragonflightUIMixin:AddNineSliceTextures(frame, true)
     DragonflightUIMixin:ButtonFrameTemplateNoPortrait(frame)
@@ -138,69 +136,82 @@ function DragonflightUIMixin:ChangeQuestFrame()
     local completeP = QuestFrameCompleteButton
     if completeP then completeP:SetPoint('BOTTOMLEFT', frame, 'BOTTOMLEFT', 6, 4) end
 
-    if DF.API.Version.IsTBC then
-        detail:ClearAllPoints()
-        detail:SetPoint('TOPLEFT')
+    local questPanels = {
+        {panel = detail, scroll = QuestDetailScrollFrame},
+        {panel = reward, scroll = QuestRewardScrollFrame},
+        {panel = progress, scroll = QuestProgressScrollFrame},
+        {panel = greeting, scroll = QuestGreetingScrollFrame}
+    }
 
-        local detailBG = _G['QuestFrameDetailPanelBg']
-        if detailBG then detailBG:Hide() end
+    for _, entry in ipairs(questPanels) do
+        local panel = entry.panel
+        if panel then
+            panel:ClearAllPoints()
+            panel:SetPoint('TOPLEFT', frame, 'TOPLEFT', 0, 0)
+        end
 
-        local scroll = QuestDetailScrollFrame
-        if scroll then scroll:ClearAllPoints() end
-    end
+        local scroll = entry.scroll
+        if scroll then
+            scroll:ClearAllPoints()
+            scroll:SetSize(300, 403)
+            if panel then scroll:SetPoint('TOPLEFT', panel, 'TOPLEFT', 8, -65) end
 
-    do
-        local scroll = QuestDetailScrollFrame
-        scroll:SetSize(300, 403)
-        scroll:SetPoint('TOPLEFT', detail, 'TOPLEFT', 8, -65)
+            local name = scroll:GetName()
+            if name then
+                local bar = _G[name .. 'ScrollBar']
+                if bar then
+                    bar:ClearAllPoints()
+                    bar:SetPoint('TOPLEFT', scroll, 'TOPRIGHT', 6, -23)
+                    bar:SetPoint('BOTTOMLEFT', scroll, 'BOTTOMRIGHT', 6, 23)
+                end
 
-        local deltaX = 4
-        local deltaY = 20
-        local bar = QuestDetailScrollFrameScrollBar
-        bar:SetPoint('TOPLEFT', scroll, 'TOPRIGHT', 6 - 5 + deltaX, -3 - deltaY)
-        bar:SetPoint('BOTTOMLEFT', scroll, 'BOTTOMRIGHT', 6 - 5 + deltaX, 3 + deltaY)
+                if _G[name .. 'Top'] then _G[name .. 'Top']:Hide() end
+                if _G[name .. 'Middle'] then _G[name .. 'Middle']:Hide() end
+                if _G[name .. 'Bottom'] then _G[name .. 'Bottom']:Hide() end
 
-        if QuestDetailScrollFrameTop then QuestDetailScrollFrameTop:Hide() end
-        if QuestDetailScrollFrameMiddle then QuestDetailScrollFrameMiddle:Hide() end
-        if QuestDetailScrollFrameBottom then QuestDetailScrollFrameBottom:Hide() end
-    end
+                if not scroll.DFTrackTop then
+                    scroll.DFTrackTop = scroll:CreateTexture(name .. 'DFTrackTop', 'BACKGROUND', nil, 1)
+                    scroll.DFTrackTop:SetAtlas('ui-scrollbar-endcap-top')
 
-    do
-        local scroll = QuestRewardScrollFrame
-        scroll:SetSize(300, 403)
-        scroll:SetPoint('TOPLEFT', reward, 'TOPLEFT', 8, -65)
+                    scroll.DFTrackBottom = scroll:CreateTexture(name .. 'DFTrackBottom', 'BACKGROUND', nil, 1)
+                    scroll.DFTrackBottom:SetAtlas('ui-scrollbar-endcap-bottom')
 
-        if DF.API.Version.IsTBC then
-            reward:ClearAllPoints()
-            reward:SetPoint('TOPLEFT')
+                    scroll.DFTrackMiddle = scroll:CreateTexture(name .. 'DFTrackMiddle', 'BACKGROUND', nil, 1)
+                    scroll.DFTrackMiddle:SetAtlas('!ui-scrollbar-center')
+                    scroll.DFTrackMiddle:SetPoint('TOPLEFT', scroll.DFTrackTop, 'BOTTOMLEFT', 0, 0)
+                    scroll.DFTrackMiddle:SetPoint('BOTTOMRIGHT', scroll.DFTrackBottom, 'TOPRIGHT', 0, 0)
+                end
+
+                local trackTop = scroll.DFTrackTop
+                local trackBottom = scroll.DFTrackBottom
+                trackTop:ClearAllPoints()
+                trackTop:SetPoint('TOPLEFT', scroll, 'TOPRIGHT', 1, -3)
+                trackTop:SetSize(25, 32)
+                trackBottom:ClearAllPoints()
+                trackBottom:SetPoint('BOTTOMLEFT', scroll, 'BOTTOMRIGHT', 1, 3)
+                trackBottom:SetSize(25, 31)
+            end
         end
     end
 
-    do
-        local scroll = QuestProgressScrollFrame
-        scroll:SetSize(300, 403)
-        scroll:SetPoint('TOPLEFT', progress, 'TOPLEFT', 8, -65)
-
-        if DF.API.Version.IsTBC then
-            progress:ClearAllPoints()
-            progress:SetPoint('TOPLEFT')
-        end
-    end
-
-    do
-        local scroll = QuestGreetingScrollFrame
-        scroll:SetSize(300, 403)
-        scroll:SetPoint('TOPLEFT', greeting, 'TOPLEFT', 8, -65)
-    end
+    local detailBG = _G['QuestFrameDetailPanelBg']
+    if detailBG then detailBG:Hide() end
+    local rewardBG = _G['QuestFrameRewardPanelBg']
+    if rewardBG then rewardBG:Hide() end
+    local progressBG = _G['QuestFrameProgressPanelBg']
+    if progressBG then progressBG:Hide() end
+    local greetingBG = _G['QuestFrameGreetingPanelBg']
+    if greetingBG then greetingBG:Hide() end
 
     do
         local tex = base .. 'questbackgroundparchment'
-        local bg = frame:CreateTexture('DFQuestBackground')
+        local bg = frame:CreateTexture('DFQuestFrameBackground')
         bg:SetTexture(tex)
         bg:SetTexCoord(0.0009765625, 0.29296875, 0.0009765625, 0.3984375)
         bg:SetSize(299, 407)
         bg:SetDrawLayer('BACKGROUND', 0)
-        bg:SetPoint('TOPLEFT', detail, 'TOPLEFT', 7, -62)
+        bg:SetPoint('TOPLEFT', frame, 'TOPLEFT', 7, -62)
+        frame.DFQuestBackground = bg
     end
 
     do
@@ -225,6 +236,15 @@ function DragonflightUIMixin:ChangeQuestFrame()
     frame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     frame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
     HideUIPanel(frame)
+
+    if not frame.DFDebugHooked then
+        frame.DFDebugHooked = true
+        frame:HookScript('OnShow', function()
+            if DF.LogQuestGossipState then
+                DF:LogQuestGossipState('quest')
+            end
+        end)
+    end
 end
 
 function DragonflightUIMixin:ShowQuestXP()
@@ -432,12 +452,13 @@ function DragonflightUIMixin:ChangeGossipFrame()
             anchorFrame = greeting;
         end
 
-        local bg = frame:CreateTexture('DFQuestBackground')
+        local bg = frame:CreateTexture('DFGossipFrameBackground')
         bg:SetPoint('TOPLEFT', anchorFrame, 'TOPLEFT', 7, -62)
         bg:SetTexture(tex)
         bg:SetTexCoord(0.0009765625, 0.29296875, 0.0009765625, 0.3984375)
         bg:SetSize(299, 407)
         bg:SetDrawLayer('BACKGROUND', 0)
+        frame.DFQuestBackground = bg
     end
 
     do

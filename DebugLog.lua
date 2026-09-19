@@ -88,6 +88,7 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 --                          that frame has it and what value it holds
 --     /df log castbar      dumps client flavor, ChannelTicks table, player/target/focus
 --                          castbar states and current channeling info into copy window
+--     /df log quest        dumps QuestFrame & GossipFrame layout, scrollbars, tracks, buttons
 --     /df log <tag>        only entries carrying that tag, e.g.
 --                          /df log error, /df log taint, /df log castbar
 --
@@ -2779,6 +2780,81 @@ function DF:LogCastbarState(tag)
     end
 end
 
+function DF:LogQuestGossipState(tag)
+    tag = tag or 'quest'
+    DF:Log(tag, '=== DF QUEST/GOSSIP DEBUG LOG ===')
+
+    local function formatPoints(f)
+        if not f then return 'nil' end
+        local n = f:GetNumPoints()
+        if not n or n == 0 then return 'no-points' end
+        local parts = {}
+        for i = 1, n do
+            local point, relTo, relPoint, x, y = f:GetPoint(i)
+            local relName = (relTo and relTo.GetName and relTo:GetName()) or tostring(relTo)
+            table.insert(parts, string.format('%s->%s:%s(%.1f,%.1f)', point or '?', relName, relPoint or '?', x or 0, y or 0))
+        end
+        return table.concat(parts, '; ')
+    end
+
+    local function logF(f, label)
+        if not f then
+            DF:Log(tag, '[DF-LOG] %s: nil', label)
+            return
+        end
+        local w, h = f:GetSize()
+        local shown = f:IsShown() and 'shown' or 'hidden'
+        local pts = formatPoints(f)
+        DF:Log(tag, '[DF-LOG] %s (%s, %.1fx%.1f): %s', label, shown, w or 0, h or 0, pts)
+    end
+
+    local function logTex(parent, pName)
+        if not parent then return end
+        local r = {parent:GetRegions()}
+        for i, child in ipairs(r) do
+            if child:GetObjectType() == 'Texture' and child:IsShown() then
+                local w, h = child:GetSize()
+                local tex = child:GetTexture() or 'nil'
+                local atlas = (child.GetAtlas and child:GetAtlas()) or 'nil'
+                local layer, sublayer = child:GetDrawLayer()
+                DF:Log(tag, '[DF-TEX] %s #%d (%s, atlas=%s, layer=%s,%s, %.1fx%.1f): %s',
+                       pName, i, tostring(tex), tostring(atlas), tostring(layer), tostring(sublayer),
+                       w or 0, h or 0, formatPoints(child))
+            end
+        end
+    end
+
+    logF(QuestFrame, 'QuestFrame')
+    logF(QuestFrame and QuestFrame.DFQuestBackground, 'DFQuestBackground')
+    logF(QuestFrameDetailPanel, 'QuestFrameDetailPanel')
+    logF(QuestDetailScrollFrame, 'QuestDetailScrollFrame')
+    logF(QuestDetailScrollFrameScrollBar, 'QuestDetailScrollFrameScrollBar')
+    logF(QuestDetailScrollFrame and QuestDetailScrollFrame.DFTrackTop, 'QuestDetailScrollFrameDFTrackTop')
+    logF(QuestDetailScrollFrame and QuestDetailScrollFrame.DFTrackBottom, 'QuestDetailScrollFrameDFTrackBottom')
+    logF(QuestDetailScrollFrame and QuestDetailScrollFrame.DFTrackMiddle, 'QuestDetailScrollFrameDFTrackMiddle')
+    logF(QuestDetailScrollFrameScrollBarScrollUpButton, 'ScrollUpButton')
+    logF(QuestDetailScrollFrameScrollBarScrollDownButton, 'ScrollDownButton')
+    logF(QuestDetailScrollFrameScrollBarThumbTexture, 'ThumbTexture')
+
+    logTex(QuestFrame, 'QuestFrame')
+    logTex(QuestFrameDetailPanel, 'DetailPanel')
+
+    if GossipFrame then
+        logF(GossipFrame, 'GossipFrame')
+        local gp = GossipFrame.GreetingPanel
+        if gp then
+            logF(gp.ScrollBox, 'Gossip.ScrollBox')
+            logF(gp.ScrollBar, 'Gossip.ScrollBar')
+            if gp.ScrollBar then
+                logF(gp.ScrollBar.Track, 'Gossip.ScrollBar.Track')
+                logF(gp.ScrollBar.Back, 'Gossip.ScrollBar.Back')
+                logF(gp.ScrollBar.Forward, 'Gossip.ScrollBar.Forward')
+            end
+        end
+    end
+    DF:Log(tag, '=== END DF LOG ===')
+end
+
 -- Returns true when the input was a log command and has been handled.
 function DF:HandleLogCommand(rest)
     rest = rest or ''
@@ -2901,6 +2977,10 @@ function DF:HandleLogCommand(rest)
     elseif sub == 'castbar' then
         DF:LogCastbarState('castbar')
         DF:LogCopy('castbar')
+    elseif sub == 'quest' or sub == 'gossip' then
+        DF:LogQuestGossipState('quest')
+        DF:LogDump('quest', 40)
+        DF:LogCopy('quest')
     else
         DF:LogDump(rest, 60)
     end
