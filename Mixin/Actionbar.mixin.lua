@@ -728,6 +728,33 @@ function DragonflightUIActionbarMixin:AddPagingStateDriver()
     handler:SetFrameRef("MainMenuBarArtFrame", MainMenuBarArtFrame)
     if _G['OverrideActionBar'] then handler:SetFrameRef("OverrideActionBar", OverrideActionBar) end
 
+    function handler:OnPageChanged()
+        local bar = self:GetParent()
+        if not bar or not bar.buttonTable then return end
+
+        for _, btn in ipairs(bar.buttonTable) do
+            if ActionButton_UpdateAction then
+                ActionButton_UpdateAction(btn)
+            else
+                local page = btn:GetAttribute("actionpage")
+                local action
+                if ActionButton_CalculateAction then
+                    action = ActionButton_CalculateAction(btn, page)
+                elseif btn.CalculateAction then
+                    action = btn:CalculateAction(page)
+                end
+                if action and action ~= btn.action then
+                    btn.action = action
+                end
+                if ActionButton_Update then
+                    ActionButton_Update(btn)
+                elseif btn.Update then
+                    btn:Update()
+                end
+            end
+        end
+    end
+
     SecureHandlerExecute(handler, [[
         handler = self
         buttonsTable = newtable()
@@ -770,10 +797,9 @@ function DragonflightUIActionbarMixin:AddPagingStateDriver()
     
             for btn in pairs(buttonsTable) do
                 btn:SetAttribute("actionpage", page)
-    
-                -- Call btn's Refresh method
-                -- btn:CallMethod("Refresh")
             end
+
+            handler:CallMethod("OnPageChanged")
         ]=]
     ]])
 
@@ -834,6 +860,7 @@ function DragonflightUIActionbarMixin:UpdatePagingStateDriver(state)
             btn:SetAttribute("useparent-actionpage", true);
             btn:SetAttribute("actionpage", nil);
         end
+        if handler.OnPageChanged then handler:OnPageChanged() end
     elseif mode == 'SMART' then
         local driverTable = {}
         -- 
@@ -881,12 +908,13 @@ function DragonflightUIActionbarMixin:UpdatePagingStateDriver(state)
         -- -- Register the init value
         handler:SetAttribute("actionpage", result)
 
-        RegisterStateDriver(handler, "page", driver)
-
         handler:SetAttribute("_onstate-page", [=[
             handler:Run(UpdateMainActionBar, newstate)
         ]=])
+
+        RegisterStateDriver(handler, "page", driver)
         handler:SetAttribute("state-page", result)
+        if handler.OnPageChanged then handler:OnPageChanged() end
     elseif mode == 'NOPAGING' then
         local driverTable = {}
         -- 
@@ -911,11 +939,13 @@ function DragonflightUIActionbarMixin:UpdatePagingStateDriver(state)
         -- Register the init value
         handler:SetAttribute("actionpage", result)
 
-        RegisterStateDriver(handler, "page", driver)
-
         handler:SetAttribute("_onstate-page", [=[
             handler:Run(UpdateMainActionBar, newstate)
         ]=])
+
+        RegisterStateDriver(handler, "page", driver)
+        handler:SetAttribute("state-page", result)
+        if handler.OnPageChanged then handler:OnPageChanged() end
     end
 end
 
