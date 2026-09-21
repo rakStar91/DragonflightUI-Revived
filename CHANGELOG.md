@@ -7,8 +7,14 @@ May 2026). Current builds report version `0.46.1`.
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
 
-## 0.46.1 — Quest Scrollbar Fix (18 September 2026)
-Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and unified the scrollbar layout logic across all quest panels.
+## 0.46.1 — Quest Scrollbar Fix & Localization (21 September 2026)
+Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and completed full localization coverage across German, Spanish, Russian, and Simplified Chinese for config panels, dropdowns, and newly added options.
+### Localization
+- Added missing translations across German (`deDE`), Spanish (`esES`), Russian (`ruRU`), and Simplified Chinese (`zhCN`) for Group Loot Container, Vehicle Leave Button, Chat dimensions, Nameplate styles, Minimap Quest Tracker, and Party/Raid frame options.
+- Localized dropdown values (Never, Always, In Combat) across Party, Pet, Raid, Target, and Target-of-Target aura tooltips.
+- Localized the fallback configuration screen for disabled modules ("Enable the %s module").
+- Updated Ko-fi donation link and natural donation phrasing across all locales.
+- Updated project repository links to `rakStar91/DragonflightUI-Revived`.
 ### Quest
 - Fixed scrollbar track textures on QuestFrame detail, reward, progress and greeting panels: replaced the old classic track tiles with `ui-scrollbar-endcap-top/bottom` and `ui-scrollbar-center` atlas textures matching the GossipFrame style.
 - Unified scrollbar layout into a single loop covering all four quest panels instead of per-panel duplicates.
