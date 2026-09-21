@@ -47,6 +47,54 @@ do
     L["ModuleAlreadyLoadedWasDeactivated"] = "Уже загруженный модуль был деактивирован, пожалуйста, выполните '/reload'!"
     L["ModuleAlreadyLoadedWasDeactivatedMultiple"] =
         "Несколько уже загруженных модулей были деактивированы, пожалуйста, выполните '/reload'!"
+    L["ConfigModuleEnableModule"] = "Включить модуль «%s»"
+    L["ConfigModuleEnableModuleDesc"] = "Этот модуль отключен, поэтому его настройки скрыты. Включите его здесь и затем введите /reload для настройки."
+end
+
+-- chat
+do
+    L["ChatOptionWidth"] = "Ширина"
+    L["ChatOptionWidthDesc"] = "Ширина окна чата."
+    L["ChatOptionHeight"] = "Высота"
+    L["ChatOptionHeightDesc"] = "Высота окна чата."
+end
+
+-- nameplates
+do
+    L["NameplatesHeaderStyle"] = "Стиль"
+    L["NameplatesOptionStyle"] = "Стиль индикаторов"
+    L["NameplatesOptionStyleDesc"] =
+        "Какой стиль индикаторов применять. Выберите \"Не управлять\", чтобы использовать настройки Blizzard."
+    L["NameplatesStyleThin"] = "Dragonflight (узкая полоса, имя сверху)"
+    L["NameplatesStyleModern"] = "Midnight (широкая полоса, имя внутри)"
+    L["NameplatesStyleClassic"] = "Classic (классическая рамка и уровень)"
+    L["NameplatesStyleBlizzard"] = "Не управлять (настройки Blizzard)"
+    L["NameplatesOptionStyleTexture"] = "Стилизация DragonflightUI"
+    L["NameplatesOptionStyleTextureDesc"] =
+        "Применять текстуру полосы здоровья DragonflightUI, обводку имен и уровень врагов. Отключение восстанавливает исходный вид."
+    L["NameplatesHeaderVisibility"] = "Видимость"
+    L["NameplatesOptionSize"] = "Размер индикаторов"
+    L["NameplatesOptionSizeDesc"] = "Масштаб индикатора (собственная настройка размера Blizzard)."
+    L["NameplatesSizeSmall"] = "Маленький"
+    L["NameplatesSizeMedium"] = "Средний (по умолчанию)"
+    L["NameplatesSizeLarge"] = "Большой"
+    L["NameplatesSizeExtraLarge"] = "Очень большой"
+    L["NameplatesSizeHuge"] = "Огромный"
+    L["NameplatesOptionClassColors"] = "Цвета классов для врагов"
+    L["NameplatesOptionClassColorsDesc"] = "Окрашивать полосы здоровья вражеских игроков в цвета классов."
+    L["NameplatesOptionFriendlyClassColors"] = "Цвета классов для союзников"
+    L["NameplatesOptionFriendlyClassColorsDesc"] = "Окрашивать полосы здоровья союзников в цвета классов."
+    L["NameplatesOptionShowEnemies"] = "Индикаторы врагов"
+    L["NameplatesOptionShowEnemiesDesc"] = "Отображать индикаторы здоровья враждебных целей."
+    L["NameplatesOptionShowFriends"] = "Индикаторы союзников"
+    L["NameplatesOptionShowFriendsDesc"] = "Отображать индикаторы здоровья дружественных игроков."
+    L["NameplatesOptionShowFriendlyNpcs"] = "Индикаторы дружественных NPC"
+    L["NameplatesOptionShowFriendlyNpcsDesc"] = "Отображать индикаторы здоровья дружественных NPC."
+    L["NameplatesOptionFriendlyNameOnly"] = "Союзники: только имя"
+    L["NameplatesOptionFriendlyNameOnlyDesc"] =
+        "Отображать только имя для союзников, без полосы здоровья."
+    L["NameplatesOptionForceShowNames"] = "Всегда отображать имена"
+    L["NameplatesOptionForceShowNamesDesc"] = "Отображать имена юнитов даже без индикаторов здоровья."
 end
 
 -- config 
@@ -76,6 +124,10 @@ do
     L["ConfigToolbarDiscordTooltip"] = "Предлагайте идеи и получайте поддержку."
     L["ConfigToolbarGithub"] = "Github"
     L["ConfigToolbarGithubTooltip"] = "Просматривайте код, сообщайте о проблемах и вносите вклад."
+    L["ConfigToolbarKofi"] = "Ko-fi"
+    L["ConfigToolbarKofiTooltip1"] =
+        "Если вам нравится DragonflightUI, вы можете поддержать дальнейшую разработку пожертвованием!"
+    L["ConfigToolbarKofiTooltip2"] = "Поддержите rakStar91 на Ko-fi."
 end
 
 -- profiles
@@ -441,7 +493,30 @@ do
 
     -- Roll
     L["GroupLootContainerName"] = "Контейнер группового лута"
-    L["GroupLootContainerDesc"] = ""
+    L["GroupLootContainerDesc"] = "Настройки контейнера бросков групповой добычи."
+    L["GroupLootOptionEnabled"] = "Включить броски добычи Dragonflight"
+    L["GroupLootOptionEnabledDesc"] =
+        "Изменяет стиль и положение окон броска добычи. Отключение требует /reload для возврата классического вида."
+    L["GroupLootOptionPreview"] = "Предпросмотр"
+    L["GroupLootOptionPreviewBtn"] = "Показать"
+    L["GroupLootOptionPreviewDesc"] =
+        "Показывает пример окна броска добычи на несколько секунд там, где оно будет появляться."
+    L["GroupLootOptionPreviewCount"] = "Количество окон предпросмотра"
+    L["GroupLootOptionPreviewCountDesc"] =
+        "Сколько окон отображается в предпросмотре, чтобы оценить несколько выпавших предметов сразу."
+    L["GroupLootOptionRollSpacing"] = "Интервал между окнами"
+    L["GroupLootOptionRollSpacingDesc"] =
+        "Вертикальный интервал между окнами броска, когда выпадает несколько предметов одновременно."
+    L["GroupLootOptionScale"] = "Масштаб"
+    L["GroupLootOptionScaleDesc"] = "Размер окон броска добычи."
+    L["GroupLootOptionShowTopRoll"] = "Показывать текущий лидирующий бросок"
+    L["GroupLootOptionShowTopRollDesc"] =
+        "Показывает текущего лидера (или количество сделанных выборов) в углу каждого окна."
+    L["GroupLootOptionShowWinnerToast"] = "Объявлять победителя"
+    L["GroupLootOptionShowWinnerToastDesc"] =
+        "Показывает небольшую панель с именем победителя, его броском и предметом после завершения бросков."
+    L["GroupLootOptionShowItemName"] = "Показывать название предмета"
+    L["GroupLootOptionShowItemNameDesc"] = "Показывать название предмета на окне броска."
 
     -- widget below
     L["WidgetBelowName"] = "Виджет под миникартой"
@@ -449,7 +524,20 @@ do
 
     -- widget below
     L["VehicleLeaveButton"] = "Кнопка выхода из транспорта"
-    L["VehicleLeaveButtonDesc"] = ""
+    L["VehicleLeaveButtonDesc"] = "Настройки кнопки выхода из транспорта и досрочной посадки."
+    L["VehicleLeaveOptionEnabled"] = "Включить кнопку выхода из транспорта"
+    L["VehicleLeaveOptionEnabledDesc"] =
+        "Отображает кнопку выхода из транспорта или досрочной посадки при перелете. Отключение полностью скрывает кнопку; /reload восстанавливает исходный вид."
+    L["VehicleLeaveOptionPreview"] = "Предпросмотр"
+    L["VehicleLeaveOptionPreviewBtn"] = "Показать"
+    L["VehicleLeaveOptionPreviewDesc"] =
+        "Показывает кнопку на ее месте на несколько секунд, чтобы вы могли настроить ее положение."
+    L["VehicleLeaveOptionShowFrame"] = "Рамка кнопки"
+    L["VehicleLeaveOptionShowFrameDesc"] =
+        "Отображает рамку кнопки действия (такую же, как на панелях команд и питомца)."
+    L["VehicleLeaveOptionShowGlow"] = "Свечение при активности"
+    L["VehicleLeaveOptionShowGlowDesc"] =
+        "Подсвечивает углы кнопки, пока она доступна для нажатия."
 end
 
 -- Buffs
@@ -615,6 +703,9 @@ do
         "Без этого настройки видимости выше не будут работать, но это может улучшить совместимость с другими аддонами (например, для MinimapAlert), так как не делает рамки защищенными."
 
     L["MinimapTrackerName"] = "Трекер"
+    L["MinimapTrackerManage"] = "Управлять отслеживанием заданий"
+    L["MinimapTrackerManageDesc"] =
+        "Позволяет DragonflightUI изменять положение и масштаб трекера заданий. Отключите эту опцию, если используете другой аддон для заданий. Требуется /reload для полного возврата."
     L["MinimapDurabilityName"] = "Прочность"
     L["MinimapLFGName"] = "LFG"
 end
@@ -933,9 +1024,13 @@ do
     L["PartyFrameBreakUpLargeNumbersDesc"] = L["PlayerFrameBreakUpLargeNumbersDesc"]
     L["PartyFrameDisableBuffTooltip"] = "Отключить подсказку баффов"
     L["PartyFrameDisableBuffTooltipDesc"] = "Отключает подсказку баффов (при наведении мыши)."
+    L["PartyFrameUseCompactPartyFramesNote"] = "Вступает в силу после перезагрузки интерфейса (/reload). Собственный переключатель Blizzard затрагивает оба отображения группы одновременно, и запуск из кода аддона делает их неспособными обновляться во время боя — поэтому значение сохраняется и применяется самой игрой при загрузке."
+    L["PartyFrameRaidProfileOptions"] = "Настройки рейд-профилей Blizzard"
+    L["PartyFrameRaidProfileOptionsDesc"] = "Открывает стандартные настройки интерфейса Blizzard для рейд-фреймов (текст здоровья, цвета классов и т. д.). Размер фреймов и расположение групп настраиваются в режиме редактирования в разделе «Рейдовые фреймы» DragonflightUI."
 
     -- raid
     L["RaidFrameName"] = "Рамка рейда"
+    L["RaidFrameSettingsDesc"] = "Открывает стандартные настройки интерфейса Blizzard для рейд-фреймов (текст здоровья, цвета классов и т. д.). Настройки режима редактирования (размер фреймов и расположение групп) находятся выше."
 
     -- Bosss
     L["BossFrameName"] = "Рамка босса"
@@ -1089,6 +1184,9 @@ do
     L["DropdownDown"] = "Вниз"
     L["DropdownLeft"] = "Влево"
     L["DropdownRight"] = "Вправо"
+    L["OptionNever"] = "Никогда"
+    L["OptionAlways"] = "Всегда"
+    L["OptionInCombat"] = "В бою"
 end
 
 -- see comment above

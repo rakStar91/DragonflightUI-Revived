@@ -41,6 +41,54 @@ do
     L["ModuleGroupLoot"] = "Gruppenbeute"
     L["ModuleAlreadyLoadedWasDeactivated"] = "Bereits geladenes Modul wurde deaktiviert, bitte '/reload' ausführen!"
     L["ModuleAlreadyLoadedWasDeactivatedMultiple"] = "Mehrere bereits geladene Module wurden deaktiviert, bitte '/reload' ausführen!"
+    L["ConfigModuleEnableModule"] = "Modul „%s“ aktivieren"
+    L["ConfigModuleEnableModuleDesc"] = "Dieses Modul ist deaktiviert, daher sind seine Einstellungen ausgeblendet. Aktiviere es hier und führe anschließend ein /reload durch, um es zu konfigurieren."
+end
+
+-- chat
+do
+    L["ChatOptionWidth"] = "Breite"
+    L["ChatOptionWidthDesc"] = "Breite des Chatfensters."
+    L["ChatOptionHeight"] = "Höhe"
+    L["ChatOptionHeightDesc"] = "Höhe des Chatfensters."
+end
+
+-- nameplates
+do
+    L["NameplatesHeaderStyle"] = "Stil"
+    L["NameplatesOptionStyle"] = "Stil der Namensplakette"
+    L["NameplatesOptionStyleDesc"] =
+        "Bestimmt das erzwungene Aussehen der Namensplaketten. Wähle „Nicht verwalten“, um die Einstellung vollständig den Blizzard-Optionen zu überlassen."
+    L["NameplatesStyleThin"] = "Dragonflight (schmale Leiste, Name darüber)"
+    L["NameplatesStyleModern"] = "Midnight (breite Leiste, Name darin)"
+    L["NameplatesStyleClassic"] = "Classic (Rahmenring, Stufenkästchen)"
+    L["NameplatesStyleBlizzard"] = "Nicht verwalten (Blizzard-Einstellung nutzen)"
+    L["NameplatesOptionStyleTexture"] = "DragonflightUI-Plakettenstil"
+    L["NameplatesOptionStyleTextureDesc"] =
+        "Wendet die DragonflightUI-Gesundheitsbalkentextur, umrandete Namen und Stufentexte für Gegner an. Das Deaktivieren stellt das Standardaussehen wieder her."
+    L["NameplatesHeaderVisibility"] = "Sichtbarkeit"
+    L["NameplatesOptionSize"] = "Plakettengröße"
+    L["NameplatesOptionSizeDesc"] = "Skalierung der gesamten Namensplakette (Blizzards eigene Größeneinstellung)."
+    L["NameplatesSizeSmall"] = "Klein"
+    L["NameplatesSizeMedium"] = "Mittel (Standard)"
+    L["NameplatesSizeLarge"] = "Groß"
+    L["NameplatesSizeExtraLarge"] = "Sehr groß"
+    L["NameplatesSizeHuge"] = "Riesig"
+    L["NameplatesOptionClassColors"] = "Klassenfarben für feindliche Plaketten"
+    L["NameplatesOptionClassColorsDesc"] = "Färbt die Gesundheitsbalken feindlicher Spieler nach ihrer Klasse ein."
+    L["NameplatesOptionFriendlyClassColors"] = "Klassenfarben für befreundete Plaketten"
+    L["NameplatesOptionFriendlyClassColorsDesc"] = "Färbt die Gesundheitsbalken befreundeter Spieler nach ihrer Klasse ein."
+    L["NameplatesOptionShowEnemies"] = "Feindliche Namensplaketten anzeigen"
+    L["NameplatesOptionShowEnemiesDesc"] = "Zeigt Namensplaketten für feindliche Einheiten an."
+    L["NameplatesOptionShowFriends"] = "Befreundete Namensplaketten anzeigen"
+    L["NameplatesOptionShowFriendsDesc"] = "Zeigt Namensplaketten für befreundete Spieler an."
+    L["NameplatesOptionShowFriendlyNpcs"] = "Befreundete NSC-Namensplaketten anzeigen"
+    L["NameplatesOptionShowFriendlyNpcsDesc"] = "Zeigt Namensplaketten für befreundete NSCs an."
+    L["NameplatesOptionFriendlyNameOnly"] = "Befreundete Plaketten: Nur Name"
+    L["NameplatesOptionFriendlyNameOnlyDesc"] =
+        "Zeigt für befreundete Spieler nur den Namen ohne Gesundheitsbalken an."
+    L["NameplatesOptionForceShowNames"] = "Namen immer anzeigen"
+    L["NameplatesOptionForceShowNamesDesc"] = "Hält Einheitennamen auch ohne Namensplakette sichtbar."
 end
 
 -- config
@@ -84,6 +132,10 @@ do
     L["ConfigToolbarDiscordTooltip"] = "Ideen einbringen & Hilfe erhalten."
     L["ConfigToolbarGithub"] = "GitHub"
     L["ConfigToolbarGithubTooltip"] = "Code ansehen, Probleme melden & beitragen."
+    L["ConfigToolbarKofi"] = "Ko-fi"
+    L["ConfigToolbarKofiTooltip1"] =
+        "Wenn dir DragonflightUI gefällt, kannst du die weitere Entwicklung gerne mit einer Spende unterstützen!"
+    L["ConfigToolbarKofiTooltip2"] = "Unterstütze rakStar91 auf Ko-fi."
 end
 
 -- profiles
@@ -474,6 +526,29 @@ end
 do
     L["GroupLootContainerName"] = "Gruppenbeute-Fenster"
     L["GroupLootContainerDesc"] = "Optionen für das Beutewürfelfenster bei Gruppenbeute."
+    L["GroupLootOptionEnabled"] = "Dragonflight-Beutewürfeln aktivieren"
+    L["GroupLootOptionEnabledDesc"] =
+        "Gestaltet die Beutewürfelfenster neu und erlaubt das freie Positionieren. Das Deaktivieren erfordert ein /reload, um das klassische Aussehen wiederherzustellen."
+    L["GroupLootOptionPreview"] = "Vorschau"
+    L["GroupLootOptionPreviewBtn"] = "Anzeigen"
+    L["GroupLootOptionPreviewDesc"] =
+        "Zeigt für einige Sekunden ein Beispiel-Würfelfenster an der konfigurierten Position."
+    L["GroupLootOptionPreviewCount"] = "Anzahl der Vorschaufenster"
+    L["GroupLootOptionPreviewCountDesc"] =
+        "Wie viele Beispielfenster in der Vorschau angezeigt werden, um das Stapeln mehrerer Beutestücke beurteilen zu können."
+    L["GroupLootOptionRollSpacing"] = "Abstand zwischen Fenstern"
+    L["GroupLootOptionRollSpacingDesc"] =
+        "Vertikaler Abstand zwischen gestapelten Würfelfenstern, wenn mehrere Gegenstände gleichzeitig fallen."
+    L["GroupLootOptionScale"] = "Skalierung"
+    L["GroupLootOptionScaleDesc"] = "Größe der Beutewürfelfenster."
+    L["GroupLootOptionShowTopRoll"] = "Aktuell höchsten Wurf anzeigen"
+    L["GroupLootOptionShowTopRollDesc"] =
+        "Zeigt in der Ecke jedes Fensters an, wer aktuell führt (oder die Anzahl der gewählten Würfe)."
+    L["GroupLootOptionShowWinnerToast"] = "Gewinner ankündigen"
+    L["GroupLootOptionShowWinnerToastDesc"] =
+        "Zeigt nach Abschluss eines Wurfs eine kurze Einblendung mit Gewinner, Wurf und Gegenstand."
+    L["GroupLootOptionShowItemName"] = "Gegenstandsname anzeigen"
+    L["GroupLootOptionShowItemNameDesc"] = "Zeigt den Namen des Gegenstands auf dem Würfelfenster an."
 end
 
 -- widget below
@@ -486,6 +561,19 @@ end
 do
     L["VehicleLeaveButton"] = "Fahrzeug verlassen"
     L["VehicleLeaveButtonDesc"] = "Schaltfläche zum Verlassen von Fahrzeugen."
+    L["VehicleLeaveOptionEnabled"] = "„Fahrzeug verlassen“-Taste aktivieren"
+    L["VehicleLeaveOptionEnabledDesc"] =
+        "Zeigt die Schaltfläche an, um ein Fahrzeug zu verlassen oder einen Flug vorzeitig am nächsten Flugmeister zu beenden. Das Deaktivieren blendet sie vollständig aus; ein /reload stellt das Standardaussehen wieder her."
+    L["VehicleLeaveOptionPreview"] = "Vorschau"
+    L["VehicleLeaveOptionPreviewBtn"] = "Anzeigen"
+    L["VehicleLeaveOptionPreviewDesc"] =
+        "Zeigt die Schaltfläche für einige Sekunden an ihrer Position. Da sie nur auf einem Flug oder in einem Fahrzeug existiert, kann sie so positioniert werden."
+    L["VehicleLeaveOptionShowFrame"] = "Schaltflächenrahmen"
+    L["VehicleLeaveOptionShowFrameDesc"] =
+        "Zeigt den Aktionsleisten-Rahmen um die Schaltfläche an (wie bei Aktions- und Begleiterleisten)."
+    L["VehicleLeaveOptionShowGlow"] = "Leuchten bei Aktivität"
+    L["VehicleLeaveOptionShowGlowDesc"] =
+        "Lässt die Ecken der Schaltfläche leuchten, während sie angeklickt werden kann (wie bei automatischen Begleiterfähigkeiten)."
 end
 
 -- Buffs
@@ -679,6 +767,9 @@ do
     L["MinimapUseStateHandler"] = "Status-Handler verwenden"
     L["MinimapUseStateHandlerDesc"] = ""
     L["MinimapTrackerName"] = "Zielverfolgung"
+    L["MinimapTrackerManage"] = "Zielverfolgung verwalten"
+    L["MinimapTrackerManageDesc"] =
+        "Erlaubt DragonflightUI das Positionieren und Skalieren der Zielverfolgung. Deaktiviere dies, wenn ein anderes Quest-Tracker-Addon die Verwaltung übernehmen soll. Erfordert ein /reload zur vollständigen Übergabe."
     L["MinimapDurabilityName"] = "Haltbarkeit"
     L["MinimapLFGName"] = "Dungeonsuche"
 end
@@ -1019,11 +1110,15 @@ do
     L["PartyFrameBreakUpLargeNumbersDesc"] = L["PlayerFrameBreakUpLargeNumbersDesc"]
     L["PartyFrameDisableBuffTooltip"] = "Auren-Tooltips deaktivieren"
     L["PartyFrameDisableBuffTooltipDesc"] = "Deaktiviert Tooltips für Stärkungs- und Schwächungszauber an Gruppenfenstern."
+    L["PartyFrameUseCompactPartyFramesNote"] = "Wird nach einem Neuladen (/reload) wirksam. Blizzards eigene Einstellung greift auf beide Gruppenanzeigen gleichzeitig zu und verhindert bei Ausführung durch Addon-Code Aktualisierungen während des Kampfes – daher wird der Wert gespeichert und beim Laden vom Spiel selbst angewendet."
+    L["PartyFrameRaidProfileOptions"] = "Blizzard Schlachtzugsprofile"
+    L["PartyFrameRaidProfileOptionsDesc"] = "Öffnet Blizzards eigene Interface-Optionen für Schlachtzugsfenster – Gesundheitstext, Klassenfarben und Ähnliches. Fenstergröße und Gruppenlayout sind Bearbeitungsmodus-Einstellungen und befinden sich im Bereich „Schlachtzugsfenster“ von DragonflightUI."
 end
 
 -- raid
 do
     L["RaidFrameName"] = "Schlachtzugsfenster"
+    L["RaidFrameSettingsDesc"] = "Öffnet Blizzards eigene Interface-Optionen für Schlachtzugsfenster – Gesundheitstext, Klassenfarben und Ähnliches. Die Bearbeitungsmodus-Einstellungen wie Fenstergröße und Gruppenlayout befinden sich weiter oben."
 end
 
 -- Bosss
@@ -1048,6 +1143,9 @@ do
     L["DropdownDown"] = "Nach unten"
     L["DropdownLeft"] = "Nach links"
     L["DropdownRight"] = "Nach rechts"
+    L["OptionNever"] = "Nie"
+    L["OptionAlways"] = "Immer"
+    L["OptionInCombat"] = "Im Kampf"
 end
 
 do
