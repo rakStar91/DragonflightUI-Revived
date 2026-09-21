@@ -133,10 +133,8 @@ function SubModuleMixin:SetupOptions()
     -- one checkbox, not the whole conditional-visibility machinery.
     optionsPet.args.enabled = {
         type = 'toggle',
-        name = 'Enable Request Stop button',
-        desc = 'Show the button that leaves a vehicle or asks a flight to land early.'
-            .. ' Turning this OFF hides it entirely; a /reload restores the default look.'
-            .. getDefaultStr('enabled', 'vehicleLeave'),
+        name = L["VehicleLeaveOptionEnabled"],
+        desc = L["VehicleLeaveOptionEnabledDesc"] .. getDefaultStr('enabled', 'vehicleLeave'),
         order = 0.5
     }
 
@@ -146,27 +144,24 @@ function SubModuleMixin:SetupOptions()
     -- seconds.
     optionsPet.args.preview = {
         type = 'execute',
-        name = 'Preview',
-        btnName = 'Show',
-        desc = 'Show the button where it will appear, for a few seconds.'
-            .. ' It only exists on a taxi or in a vehicle, so this is the way to place it.',
+        name = L["VehicleLeaveOptionPreview"],
+        btnName = L["VehicleLeaveOptionPreviewBtn"],
+        desc = L["VehicleLeaveOptionPreviewDesc"],
         func = function() self:ShowPreview() end,
         order = 0.6
     }
 
     optionsPet.args.showFrame = {
         type = 'toggle',
-        name = 'Button frame',
-        desc = 'Draw the action-button border around it, the same one the action and pet bars use.'
-            .. getDefaultStr('showFrame', 'vehicleLeave'),
+        name = L["VehicleLeaveOptionShowFrame"],
+        desc = L["VehicleLeaveOptionShowFrameDesc"] .. getDefaultStr('showFrame', 'vehicleLeave'),
         order = 0.7
     }
 
     optionsPet.args.showGlow = {
         type = 'toggle',
-        name = 'Glow when active',
-        desc = 'Light the button with the corner glow an autocasting pet ability gets, while it can be clicked.'
-            .. getDefaultStr('showGlow', 'vehicleLeave'),
+        name = L["VehicleLeaveOptionShowGlow"],
+        desc = L["VehicleLeaveOptionShowGlowDesc"] .. getDefaultStr('showGlow', 'vehicleLeave'),
         order = 0.8
     }
 

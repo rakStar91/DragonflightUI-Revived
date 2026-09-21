@@ -128,9 +128,9 @@ function SubModuleMixin:SetupOptions()
     }
 
     local partyBuffTooltipTable = {
-        {value = 'NEVER', text = 'Never', tooltip = 'descr', label = 'label'},
-        {value = 'ALWAYS', text = 'Always', tooltip = 'descr', label = 'label'},
-        {value = 'INCOMBAT', text = 'In Combat', tooltip = 'descr', label = 'label'}
+        {value = 'NEVER', text = L["OptionNever"] or 'Never', tooltip = 'descr', label = 'label'},
+        {value = 'ALWAYS', text = L["OptionAlways"] or 'Always', tooltip = 'descr', label = 'label'},
+        {value = 'INCOMBAT', text = L["OptionInCombat"] or 'In Combat', tooltip = 'descr', label = 'label'}
     }
 
     if DF.Wrath then
@@ -371,8 +371,9 @@ function SubModuleMixin:SetupOptions()
             raidFrameBtn = {
                 type = 'execute',
                 name = L['RaidFrameSettings'] or RAID_FRAMES_LABEL or 'Raid Frame Settings',
-                desc = 'Opens Blizzard\'s own Interface options for raid frames - health text, class colours and ' ..
-                    'the like. The Edit Mode settings, frame size and group layout, are above.',
+                desc = L['RaidFrameSettingsDesc'] or
+                    ('Opens Blizzard\'s own Interface options for raid frames - health text, class colours and ' ..
+                    'the like. The Edit Mode settings, frame size and group layout, are above.'),
                 btnName = L['Open'] or OPEN_LOG or 'Open',
                 func = function()
                     Settings.OpenToCategory(Settings.INTERFACE_CATEGORY_ID, RAID_FRAMES_LABEL);
@@ -523,6 +524,9 @@ function SubModuleMixin:SetupOptions()
             raidFrameBtn = {
                 type = 'execute',
                 name = L['RaidFrameSettings'] or RAID_FRAMES_LABEL or 'Raid Frame Settings',
+                desc = L['RaidFrameSettingsDesc'] or
+                    ('Opens Blizzard\'s own Interface options for raid frames - health text, class colours and ' ..
+                    'the like. The Edit Mode settings, frame size and group layout, are above.'),
                 btnName = L['Open'] or OPEN_LOG or 'Open',
                 func = function()
                     Settings.OpenToCategory(Settings.INTERFACE_CATEGORY_ID, RAID_FRAMES_LABEL);

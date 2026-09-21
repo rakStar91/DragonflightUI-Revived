@@ -40,6 +40,54 @@ do
     L["ModuleUtility"] = "Utilidad"
     L["ModuleCompatibility"] = "Compatibilidad"
     L["ModuleBossframe"] = "Marcos de jefe"
+    L["ConfigModuleEnableModule"] = "Activar el módulo %s"
+    L["ConfigModuleEnableModuleDesc"] = "Este módulo está desactivado, por lo que sus opciones están ocultas. Actívalo aquí y luego escribe /reload para configurarlo."
+end
+
+-- chat
+do
+    L["ChatOptionWidth"] = "Anchura"
+    L["ChatOptionWidthDesc"] = "Anchura de la ventana de chat."
+    L["ChatOptionHeight"] = "Altura"
+    L["ChatOptionHeightDesc"] = "Altura de la ventana de chat."
+end
+
+-- nameplates
+do
+    L["NameplatesHeaderStyle"] = "Estilo"
+    L["NameplatesOptionStyle"] = "Estilo de placa de nombre"
+    L["NameplatesOptionStyleDesc"] =
+        "Qué aspecto de placa forzar. Elige \"No gestionar\" para dejar el estilo totalmente a la configuración de Blizzard."
+    L["NameplatesStyleThin"] = "Dragonflight (barra delgada, nombre arriba)"
+    L["NameplatesStyleModern"] = "Midnight (barra gruesa, nombre dentro)"
+    L["NameplatesStyleClassic"] = "Classic (anillo de borde, caja de nivel)"
+    L["NameplatesStyleBlizzard"] = "No gestionar (usar ajuste de Blizzard)"
+    L["NameplatesOptionStyleTexture"] = "Estilo de placa DragonflightUI"
+    L["NameplatesOptionStyleTextureDesc"] =
+        "Aplica la textura de barra de salud de DragonflightUI, nombres con contorno y nivel de enemigos. Desactivar esto restaura el aspecto nativo."
+    L["NameplatesHeaderVisibility"] = "Visibilidad"
+    L["NameplatesOptionSize"] = "Tamaño de placa"
+    L["NameplatesOptionSizeDesc"] = "Escala de toda la placa (ajuste de tamaño de Blizzard)."
+    L["NameplatesSizeSmall"] = "Pequeño"
+    L["NameplatesSizeMedium"] = "Mediano (predeterminado)"
+    L["NameplatesSizeLarge"] = "Grande"
+    L["NameplatesSizeExtraLarge"] = "Muy grande"
+    L["NameplatesSizeHuge"] = "Enorme"
+    L["NameplatesOptionClassColors"] = "Color de clase en placas enemigas"
+    L["NameplatesOptionClassColorsDesc"] = "Colorea las barras de salud de los jugadores enemigos según su clase."
+    L["NameplatesOptionFriendlyClassColors"] = "Color de clase en placas amistosas"
+    L["NameplatesOptionFriendlyClassColorsDesc"] = "Colorea las barras de salud de los jugadores amistosos según su clase."
+    L["NameplatesOptionShowEnemies"] = "Mostrar placas de enemigos"
+    L["NameplatesOptionShowEnemiesDesc"] = "Muestra placas de nombre para unidades hostiles."
+    L["NameplatesOptionShowFriends"] = "Mostrar placas de amistosos"
+    L["NameplatesOptionShowFriendsDesc"] = "Muestra placas de nombre para jugadores amistosos."
+    L["NameplatesOptionShowFriendlyNpcs"] = "Mostrar placas de PNJ amistosos"
+    L["NameplatesOptionShowFriendlyNpcsDesc"] = "Muestra placas de nombre para PNJ amistosos."
+    L["NameplatesOptionFriendlyNameOnly"] = "Placas amistosas: solo nombre"
+    L["NameplatesOptionFriendlyNameOnlyDesc"] =
+        "Muestra solo el nombre para jugadores amistosos, sin barra de salud."
+    L["NameplatesOptionForceShowNames"] = "Mostrar siempre nombres"
+    L["NameplatesOptionForceShowNamesDesc"] = "Mantiene visibles los nombres de las unidades sin placa."
 end
 
 -- config 
@@ -69,6 +117,10 @@ do
     L["ConfigToolbarDiscordTooltip"] = "Contribuye con ideas y obtén soporte."
     L["ConfigToolbarGithub"] = "Github"
     L["ConfigToolbarGithubTooltip"] = "Ver código, reportar problemas y contribuir."
+    L["ConfigToolbarKofi"] = "Ko-fi"
+    L["ConfigToolbarKofiTooltip1"] =
+        "¡Si disfrutas de DragonflightUI, puedes apoyar el desarrollo continuo con una donación!"
+    L["ConfigToolbarKofiTooltip2"] = "Apoya a rakStar91 en Ko-fi."
 end
 
 -- profiles
@@ -924,6 +976,29 @@ do
 
     L["GroupLootContainerName"] = "Contenedor de botín de grupo"
     L["GroupLootContainerDesc"] = "Opciones para las tiradas de botín en grupo."
+    L["GroupLootOptionEnabled"] = "Activar tiradas de botín de Dragonflight"
+    L["GroupLootOptionEnabledDesc"] =
+        "Rediseña y reposiciona las ventanas de tirada de botín. Desactivar esto requiere un /reload para restaurar el aspecto clásico."
+    L["GroupLootOptionPreview"] = "Vista previa"
+    L["GroupLootOptionPreviewBtn"] = "Mostrar"
+    L["GroupLootOptionPreviewDesc"] =
+        "Muestra una tirada de botín de muestra donde aparecerá la tuya, durante unos segundos."
+    L["GroupLootOptionPreviewCount"] = "Tiradas de vista previa"
+    L["GroupLootOptionPreviewCountDesc"] =
+        "Cuántas tiradas de muestra muestra la vista previa, para poder evaluar un botín completo en lugar de un solo objeto."
+    L["GroupLootOptionRollSpacing"] = "Espaciado entre tiradas"
+    L["GroupLootOptionRollSpacingDesc"] =
+        "Espacio vertical entre ventanas de tirada apiladas cuando caen varios objetos a la vez."
+    L["GroupLootOptionScale"] = "Escala"
+    L["GroupLootOptionScaleDesc"] = "Tamaño de las ventanas de tirada de botín."
+    L["GroupLootOptionShowTopRoll"] = "Mostrar la tirada líder actual"
+    L["GroupLootOptionShowTopRollDesc"] =
+        "Muestra quién va ganando actualmente (o el recuento de elecciones) en la esquina de cada ventana."
+    L["GroupLootOptionShowWinnerToast"] = "Anunciar al ganador"
+    L["GroupLootOptionShowWinnerToastDesc"] =
+        "Muestra un breve panel con el nombre del ganador, su tirada y el objeto una vez finalizada la tirada."
+    L["GroupLootOptionShowItemName"] = "Mostrar nombre del objeto"
+    L["GroupLootOptionShowItemNameDesc"] = "Muestra el nombre del objeto en la ventana de tirada."
 
     L["MinimapDurabilityName"] = "Durabilidad"
     L["MinimapHideClock"] = "Ocultar reloj"
@@ -937,6 +1012,9 @@ do
     L["MinimapShape"] = "Forma"
     L["MinimapShapeDesc"] = "Forma del minimapa (Redondo o Cuadrado)."
     L["MinimapTrackerName"] = "Seguimiento de objetivos"
+    L["MinimapTrackerManage"] = "Gestionar el seguimiento de misiones"
+    L["MinimapTrackerManageDesc"] =
+        "Permite que DragonflightUI posicione y escale el seguimiento de misiones. Desactiva esto para dejarlo en manos de otro addon de misiones. Requiere un /reload para aplicarse por completo."
 
     L["ModuleAlreadyLoadedWasDeactivated"] = "El módulo ya estaba cargado y fue desactivado: %s"
     L["ModuleAlreadyLoadedWasDeactivatedMultiple"] = "Los módulos ya estaban cargados y fueron desactivados:\n%s"
@@ -950,6 +1028,9 @@ do
 
     L["PartyFrameDisableBuffTooltip"] = "Desactivar tooltip de auras"
     L["PartyFrameDisableBuffTooltipDesc"] = "Desactiva los tooltips en los beneficios de grupo."
+    L["PartyFrameUseCompactPartyFramesNote"] = "Surte efecto después de recargar la interfaz (/reload). El ajuste propio de Blizzard accede a ambas pantallas de grupo a la vez y, al ejecutarse desde el código del addon, impide que se actualicen en combate, por lo que el valor se guarda y el juego lo aplica al cargar."
+    L["PartyFrameRaidProfileOptions"] = "Opciones de perfiles de banda de Blizzard"
+    L["PartyFrameRaidProfileOptionsDesc"] = "Abre las opciones de interfaz propias de Blizzard para los marcos de banda (texto de salud, colores de clase, etc.). El tamaño del marco y la disposición del grupo son ajustes del Modo de edición y se encuentran en la sección Banda de DragonflightUI."
     L["PartyFrameName"] = "Marco de grupo"
 
     L["PetFrameHideDebuffs"] = "Ocultar perjuicios"
@@ -958,6 +1039,7 @@ do
     L["PlayerFrameName"] = "Marco del jugador"
     L["ProfessionExpansionFormat"] = "Expansión: %s"
     L["RaidFrameName"] = "Marco de banda"
+    L["RaidFrameSettingsDesc"] = "Abre las opciones de interfaz propias de Blizzard para los marcos de banda (texto de salud, colores de clase, etc.). Los ajustes del Modo de edición, como el tamaño del marco y la disposición del grupo, están arriba."
 
     L["TargetFrameAuraOffsetY"] = "Desplazamiento Y de auras"
     L["TargetFrameAuraOffsetYDesc"] = "Espacio vertical entre filas de auras."
@@ -979,7 +1061,20 @@ do
     L["TooltipDefaultAnchorWhileCombatDesc"] = "Usa la posición fija en lugar del cursor en combate."
     L["UIName"] = "Interfaz de usuario"
     L["VehicleLeaveButton"] = "Salir del vehículo"
-    L["VehicleLeaveButtonDesc"] = "Botón para salir de vehículos."
+    L["VehicleLeaveButtonDesc"] = "Opciones para el botón de salir de vehículo y parada solicitada."
+    L["VehicleLeaveOptionEnabled"] = "Activar botón de salir del vehículo"
+    L["VehicleLeaveOptionEnabledDesc"] =
+        "Muestra el botón para salir de un vehículo o solicitar aterrizar en la siguiente parada. Desactivar esto lo oculta por completo; un /reload restaura el aspecto predeterminado."
+    L["VehicleLeaveOptionPreview"] = "Vista previa"
+    L["VehicleLeaveOptionPreviewBtn"] = "Mostrar"
+    L["VehicleLeaveOptionPreviewDesc"] =
+        "Muestra el botón donde aparecerá durante unos segundos. Solo existe en una ruta de vuelo o en un vehículo, por lo que esta es la forma de colocarlo."
+    L["VehicleLeaveOptionShowFrame"] = "Borde del botón"
+    L["VehicleLeaveOptionShowFrameDesc"] =
+        "Dibuja el borde del botón de acción alrededor, el mismo que usan las barras de acción y de mascotas."
+    L["VehicleLeaveOptionShowGlow"] = "Brillar cuando esté activo"
+    L["VehicleLeaveOptionShowGlowDesc"] =
+        "Ilumina el botón con el brillo en las esquinas mientras se pueda hacer clic."
     L["WidgetBelowName"] = "Widget debajo del minimapa"
     L["WidgetBelowNameDesc"] = "Posición del widget debajo del minimapa."
 
@@ -1086,6 +1181,9 @@ do
     L["DropdownDown"] = "Abajo"
     L["DropdownLeft"] = "Izquierda"
     L["DropdownRight"] = "Derecha"
+    L["OptionNever"] = "Nunca"
+    L["OptionAlways"] = "Siempre"
+    L["OptionInCombat"] = "En combate"
 end
 
 local L_ES = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esES")

@@ -65,14 +65,14 @@ local hookedOnce = {}
 
 local options = {
     type = 'group',
-    name = 'DragonflightUI - ' .. mName,
+    name = L["ModuleChat"],
     get = getOption,
     set = setOption,
     args = {
         scale = {
             type = 'range',
-            name = 'Scale',
-            desc = '' .. getDefaultStr('scale'),
+            name = L["PositionTableScale"],
+            desc = L["PositionTableScaleDesc"] .. getDefaultStr('scale'),
             min = 0.2,
             max = 5,
             bigStep = 0.1,
@@ -80,19 +80,10 @@ local options = {
             disabled = true,
             editmode = true
         },
-        anchorFrame = {
-            type = 'select',
-            name = 'Anchorframe',
-            desc = 'Anchor' .. getDefaultStr('anchorFrame'),
-            dropdownValues = frameTable,
-            values = frameTable,
-            order = 4,
-            editmode = true
-        },
         anchor = {
             type = 'select',
-            name = 'Anchor',
-            desc = 'Anchor' .. getDefaultStr('anchor'),
+            name = L["PositionTableAnchor"],
+            desc = L["PositionTableAnchorDesc"] .. getDefaultStr('anchor'),
             values = {
                 ['TOP'] = 'TOP',
                 ['RIGHT'] = 'RIGHT',
@@ -110,8 +101,8 @@ local options = {
         },
         anchorParent = {
             type = 'select',
-            name = 'AnchorParent',
-            desc = 'AnchorParent' .. getDefaultStr('anchorParent'),
+            name = L["PositionTableAnchorParent"],
+            desc = L["PositionTableAnchorParentDesc"] .. getDefaultStr('anchorParent'),
             values = {
                 ['TOP'] = 'TOP',
                 ['RIGHT'] = 'RIGHT',
@@ -127,10 +118,19 @@ local options = {
             order = 3,
             editmode = true
         },
+        anchorFrame = {
+            type = 'select',
+            name = L["PositionTableAnchorFrame"],
+            desc = L["PositionTableAnchorFrameDesc"] .. getDefaultStr('anchorFrame'),
+            dropdownValues = frameTable,
+            values = frameTable,
+            order = 4,
+            editmode = true
+        },
         x = {
             type = 'range',
-            name = 'X',
-            desc = 'X relative to BOTTOM LEFT' .. getDefaultStr('x'),
+            name = L["PositionTableX"],
+            desc = L["PositionTableXDesc"] .. getDefaultStr('x'),
             min = 0,
             max = 3500,
             bigStep = 1,
@@ -139,8 +139,8 @@ local options = {
         },
         y = {
             type = 'range',
-            name = 'Y',
-            desc = 'Y relative to BOTTOM LEFT' .. getDefaultStr('y'),
+            name = L["PositionTableY"],
+            desc = L["PositionTableYDesc"] .. getDefaultStr('y'),
             min = 0,
             max = 3500,
             bigStep = 1,
@@ -149,8 +149,8 @@ local options = {
         },
         sizeX = {
             type = 'range',
-            name = 'Size X',
-            desc = 'Size X' .. getDefaultStr('sizeX'),
+            name = L["ChatOptionWidth"],
+            desc = L["ChatOptionWidthDesc"] .. getDefaultStr('sizeX'),
             min = 0,
             max = 1000,
             bigStep = 1,
@@ -159,8 +159,8 @@ local options = {
         },
         sizeY = {
             type = 'range',
-            name = 'Size Y',
-            desc = 'Size Y' .. getDefaultStr('sizeY'),
+            name = L["ChatOptionHeight"],
+            desc = L["ChatOptionHeightDesc"] .. getDefaultStr('sizeY'),
             min = 0,
             max = 1000,
             bigStep = 1,
@@ -537,11 +537,11 @@ function Module:AddEditMode()
     EditModeModule:AddEditModeToFrame(ChatFrame1)
 
     ChatFrame1.DFEditModeSelection:SetGetLabelTextFunction(function()
-        return 'Chat'
+        return L["ModuleChat"]
     end)
 
     ChatFrame1.DFEditModeSelection:RegisterOptions({
-        name = 'Chat',
+        name = L["ModuleChat"],
         options = options,
         default = setDefaultValues,
         moduleRef = self

@@ -98,17 +98,14 @@ local trackerOptions = {
 DF.Settings:AddPositionTable(Module, trackerOptions, 'tracker', 'Tracker', getDefaultStr, frameTableTracker)
 trackerOptions.args.enabled = {
     type = 'toggle',
-    name = 'Manage the quest tracker',
-    desc = 'Let DragonflightUI position and scale the quest tracker.'
-        .. ' Turn this OFF to leave the tracker completely alone - useful when another'
-        .. ' quest tracker addon wants to own it. Needs a /reload to hand it back fully.'
-        .. getDefaultStr('enabled', 'tracker'),
+    name = L["MinimapTrackerManage"],
+    desc = L["MinimapTrackerManageDesc"] .. getDefaultStr('enabled', 'tracker'),
     order = 0.5
 }
 
 local optionsTrackerEditmode = {
-    name = 'Tracker',
-    desc = 'Tracker',
+    name = L["MinimapTrackerName"],
+    desc = L["MinimapTrackerName"],
     get = getOption,
     set = setOption,
     type = 'group',
@@ -150,8 +147,8 @@ local optionsLFG = {
 DF.Settings:AddPositionTable(Module, optionsLFG, 'lfg', 'LFG', getDefaultStr, frameTableTracker)
 
 local optionsLFGEditmode = {
-    name = 'LFG',
-    desc = 'LFG',
+    name = L["MinimapLFGName"],
+    desc = L["MinimapLFGName"],
     get = getOption,
     set = setOption,
     type = 'group',

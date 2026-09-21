@@ -25,16 +25,26 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 DF.ChangelogData = {
     {
         version = '0.46.1',
-        title = 'Quest Scrollbar Fix',
-        date = '18 September 2026',
-        intro = 'Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and unified the scrollbar layout logic across all quest panels.',
+        title = 'Quest Scrollbar Fix & Localization',
+        date = '21 September 2026',
+        intro = 'Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and completed full localization coverage across German, Spanish, Russian, and Simplified Chinese for config panels, dropdowns, and newly added options.',
         sections = {
             {
                 title = 'Highlights',
                 items = {
                     'QuestFrame scrollbar in TBC 2.5.6 now uses the same Dragonflight track textures as the GossipFrame.',
                     'Scrollbar layout unified across all four quest panels (detail, reward, progress, greeting).',
+                    'Complete localization coverage added for config panels: Group Loot, Vehicle Leave, Chat, Nameplates, Quest Tracker, Party & Raid options.',
                     'New /df log quest command for diagnosing quest and gossip frame scrollbar geometry.'
+                }
+            }, {
+                title = 'Localization',
+                items = {
+                    'Added missing translations in German, Spanish, Russian, and Simplified Chinese for Group Loot, Vehicle Leave Button, Chat dimensions, Nameplate styles, Minimap Quest Tracker, and Party/Raid profile options.',
+                    'Localized dropdown values (Never, Always, In Combat) across Party, Pet, Raid, Target, and Target-of-Target frame auras.',
+                    'Localized the fallback screen shown for disabled modules.',
+                    'Updated Ko-fi donation text to natural wording across all supported languages.',
+                    'Updated project repository links to rakStar91/DragonflightUI-Revived.'
                 }
             }, {
                 title = 'Quest',

@@ -47,6 +47,54 @@ do
     L["ModuleAlreadyLoadedWasDeactivated"] = "已加载的模块已停用，请重载界面(/reload)！"
     L["ModuleAlreadyLoadedWasDeactivatedMultiple"] =
         "多个已经加载的模块被停用，请重载界面(/reload)！"
+    L["ConfigModuleEnableModule"] = "启用%s模块"
+    L["ConfigModuleEnableModuleDesc"] = "该模块已关闭，因此其设置已被隐藏。在此启用它，然后使用 /reload 重新加载即可进行配置。"
+end
+
+-- chat
+do
+    L["ChatOptionWidth"] = "宽度"
+    L["ChatOptionWidthDesc"] = "聊天窗口的宽度。"
+    L["ChatOptionHeight"] = "高度"
+    L["ChatOptionHeightDesc"] = "聊天窗口的高度。"
+end
+
+-- nameplates
+do
+    L["NameplatesHeaderStyle"] = "样式"
+    L["NameplatesOptionStyle"] = "姓名板样式"
+    L["NameplatesOptionStyleDesc"] =
+        "指定要强制使用的姓名板外观。选择“不管理”以完全保留暴雪自身设置。"
+    L["NameplatesStyleThin"] = "巨龙时代 (窄条，名字在上方)"
+    L["NameplatesStyleModern"] = "至暗之夜 (宽条，名字在内部)"
+    L["NameplatesStyleClassic"] = "经典旧世 (经典边框，等级框)"
+    L["NameplatesStyleBlizzard"] = "不管理 (使用暴雪设置)"
+    L["NameplatesOptionStyleTexture"] = "DragonflightUI 姓名板样式"
+    L["NameplatesOptionStyleTextureDesc"] =
+        "应用 DragonflightUI 生命条纹理、轮廓名字和敌方等级文本。关闭此项可恢复原生外观。"
+    L["NameplatesHeaderVisibility"] = "可见性"
+    L["NameplatesOptionSize"] = "姓名板尺寸"
+    L["NameplatesOptionSizeDesc"] = "整张姓名板的缩放（暴雪自带尺寸设置）。"
+    L["NameplatesSizeSmall"] = "小"
+    L["NameplatesSizeMedium"] = "中 (默认)"
+    L["NameplatesSizeLarge"] = "大"
+    L["NameplatesSizeExtraLarge"] = "特大"
+    L["NameplatesSizeHuge"] = "巨大"
+    L["NameplatesOptionClassColors"] = "敌方姓名板职业颜色"
+    L["NameplatesOptionClassColorsDesc"] = "按职业为敌方玩家生命条着色。"
+    L["NameplatesOptionFriendlyClassColors"] = "友方姓名板职业颜色"
+    L["NameplatesOptionFriendlyClassColorsDesc"] = "按职业为友方玩家生命条着色。"
+    L["NameplatesOptionShowEnemies"] = "显示敌方姓名板"
+    L["NameplatesOptionShowEnemiesDesc"] = "显示敌对目标的姓名板。"
+    L["NameplatesOptionShowFriends"] = "显示友方姓名板"
+    L["NameplatesOptionShowFriendsDesc"] = "显示友方玩家的姓名板。"
+    L["NameplatesOptionShowFriendlyNpcs"] = "显示友方 NPC 姓名板"
+    L["NameplatesOptionShowFriendlyNpcsDesc"] = "显示友方 NPC 的姓名板。"
+    L["NameplatesOptionFriendlyNameOnly"] = "友方姓名板：仅名字"
+    L["NameplatesOptionFriendlyNameOnlyDesc"] =
+        "友方玩家仅显示名字，不显示生命条。"
+    L["NameplatesOptionForceShowNames"] = "始终显示名字"
+    L["NameplatesOptionForceShowNamesDesc"] = "即使没有姓名板也始终保持单位名字可见。"
 end
 
 -- config 
@@ -76,6 +124,10 @@ do
     L["ConfigToolbarDiscordTooltip"] = "交流创意与获取支持"
     L["ConfigToolbarGithub"] = "Github"
     L["ConfigToolbarGithubTooltip"] = "查看代码、提交问题与贡献"
+    L["ConfigToolbarKofi"] = "Ko-fi"
+    L["ConfigToolbarKofiTooltip1"] =
+        "如果您喜欢 DragonflightUI，可以考虑通过赞助来支持后续开发！"
+    L["ConfigToolbarKofiTooltip2"] = "在 Ko-fi 上支持 rakStar91。"
 end
 
 -- profiles
@@ -432,7 +484,30 @@ do
 
     -- Roll
     L["GroupLootContainerName"] = "掉落拾取窗口"
-    L["GroupLootContainerDesc"] = ""
+    L["GroupLootContainerDesc"] = "队伍战利品掷骰窗口选项。"
+    L["GroupLootOptionEnabled"] = "启用巨龙时代战利品掷骰"
+    L["GroupLootOptionEnabledDesc"] =
+        "重塑并重新定位队伍战利品掷骰框架。关闭此项需要 /reload 以恢复经典外观。"
+    L["GroupLootOptionPreview"] = "预览"
+    L["GroupLootOptionPreviewBtn"] = "显示"
+    L["GroupLootOptionPreviewDesc"] =
+        "在战利品出现的位置显示示例掷骰窗口数秒。"
+    L["GroupLootOptionPreviewCount"] = "预览掷骰数量"
+    L["GroupLootOptionPreviewCountDesc"] =
+        "预览弹出的示例掷骰数量，以便评估整组掉落而非单个物品。"
+    L["GroupLootOptionRollSpacing"] = "掷骰窗口间距"
+    L["GroupLootOptionRollSpacingDesc"] =
+        "多个物品同时掉落时，堆叠掷骰框架之间的垂直间距。"
+    L["GroupLootOptionScale"] = "缩放"
+    L["GroupLootOptionScaleDesc"] = "战利品掷骰框架的大小。"
+    L["GroupLootOptionShowTopRoll"] = "显示当前最高点数"
+    L["GroupLootOptionShowTopRollDesc"] =
+        "在每个掷骰框架角落显示当前获胜者（或掷骰期间的选择计数）。"
+    L["GroupLootOptionShowWinnerToast"] = "公布获胜者"
+    L["GroupLootOptionShowWinnerToastDesc"] =
+        "掷骰结束后，显示简短面板展示获胜者、点数及物品。"
+    L["GroupLootOptionShowItemName"] = "显示物品名称"
+    L["GroupLootOptionShowItemNameDesc"] = "在掷骰框架上显示物品名称。"
 
     -- widget below
     L["WidgetBelowName"] = "小地图下面的小部件"
@@ -440,7 +515,20 @@ do
 
     -- widget below
     L["VehicleLeaveButton"] = "载具离开按钮"
-    L["VehicleLeaveButtonDesc"] = ""
+    L["VehicleLeaveButtonDesc"] = "离开载具与请求停靠按钮选项。"
+    L["VehicleLeaveOptionEnabled"] = "启用离开载具按钮"
+    L["VehicleLeaveOptionEnabledDesc"] =
+        "显示离开载具或请求提前降落飞行路线的按钮。关闭此项将完全隐藏该按钮；/reload 可恢复默认外观。"
+    L["VehicleLeaveOptionPreview"] = "预览"
+    L["VehicleLeaveOptionPreviewBtn"] = "显示"
+    L["VehicleLeaveOptionPreviewDesc"] =
+        "在按钮将出现的位置显示数秒，以便进行摆放调整。"
+    L["VehicleLeaveOptionShowFrame"] = "按钮边框"
+    L["VehicleLeaveOptionShowFrameDesc"] =
+        "在按钮周围绘制动作条样式的边框。"
+    L["VehicleLeaveOptionShowGlow"] = "激活时发光"
+    L["VehicleLeaveOptionShowGlowDesc"] =
+        "当按钮可点击时，在其四角显示高亮发光效果。"
 end
 
 -- Buffs
@@ -607,6 +695,9 @@ do
         "禁用此项将导致上方可见性设置失效，但可能提升其他插件兼容性(如MinimapAlert)，因为它不会使框体变为安全框体。"
 
     L["MinimapTrackerName"] = "追踪器"
+    L["MinimapTrackerManage"] = "管理任务追踪器"
+    L["MinimapTrackerManageDesc"] =
+        "允许 DragonflightUI 定位和缩放任务追踪器。如果希望其他任务追踪插件完全接管，请关闭此项。需要 /reload 才能完全生效。"
     L["MinimapDurabilityName"] = "耐久"
     L["MinimapLFGName"] = "LFG"
 end
@@ -922,9 +1013,13 @@ do
     L["PartyFrameBreakUpLargeNumbersDesc"] = L["PlayerFrameBreakUpLargeNumbersDesc"]
     L["PartyFrameDisableBuffTooltip"] = "禁用增益效果提示框"
     L["PartyFrameDisableBuffTooltipDesc"] = "禁用鼠标悬浮时增益的提示框。"
+    L["PartyFrameUseCompactPartyFramesNote"] = "重新加载界面（/reload）后生效。暴雪自带的开关会同时影响两种小队显示，若在插件代码中直接调用会导致其在战斗中无法更新——因此该设置会被保存并在游戏加载时由系统自行应用。"
+    L["PartyFrameRaidProfileOptions"] = "暴雪团队配置选项"
+    L["PartyFrameRaidProfileOptionsDesc"] = "打开暴雪自带的团队框架界面设置（生命值文本、职业颜色等）。框架尺寸和团队布局属于编辑模式设置，位于 DragonflightUI 的团队框架部分。"
 
     -- raid
     L["RaidFrameName"] = "团队框体"
+    L["RaidFrameSettingsDesc"] = "打开暴雪自带的团队框架界面设置（生命值文本、职业颜色等）。框架尺寸和团队布局等编辑模式设置位于上方。"
 
     -- Bosss
     L["BossFrameName"] = "首领框体"
@@ -1078,6 +1173,9 @@ do
     L["DropdownDown"] = "向下"
     L["DropdownLeft"] = "向左"
     L["DropdownRight"] = "向右"
+    L["OptionNever"] = "从不"
+    L["OptionAlways"] = "总是"
+    L["OptionInCombat"] = "战斗中"
 end
 
 -- see comment above

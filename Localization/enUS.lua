@@ -50,6 +50,54 @@ do
     L["ModuleAlreadyLoadedWasDeactivated"] = "Already loaded module was deactivated, please '/reload'!"
     L["ModuleAlreadyLoadedWasDeactivatedMultiple"] =
         "Multiple already loaded modules were deactivated, please '/reload'!"
+    L["ConfigModuleEnableModule"] = "Enable the %s module"
+    L["ConfigModuleEnableModuleDesc"] = "This module is turned off, so its options are hidden. Enable it here, then /reload to configure it."
+end
+
+-- chat
+do
+    L["ChatOptionWidth"] = "Width"
+    L["ChatOptionWidthDesc"] = "Width of the chat frame."
+    L["ChatOptionHeight"] = "Height"
+    L["ChatOptionHeightDesc"] = "Height of the chat frame."
+end
+
+-- nameplates
+do
+    L["NameplatesHeaderStyle"] = "Style"
+    L["NameplatesOptionStyle"] = "Nameplate style"
+    L["NameplatesOptionStyleDesc"] =
+        "Which nameplate look to enforce. Pick \"Don't manage\" to leave the style entirely to Blizzard's own settings - useful if you change it there and want it to stick across reloads."
+    L["NameplatesStyleThin"] = "Dragonflight (thin bar, name above)"
+    L["NameplatesStyleModern"] = "Midnight (thick bar, name inside)"
+    L["NameplatesStyleClassic"] = "Classic (border ring, level box)"
+    L["NameplatesStyleBlizzard"] = "Don't manage (use Blizzard's setting)"
+    L["NameplatesOptionStyleTexture"] = "DragonflightUI plate styling"
+    L["NameplatesOptionStyleTextureDesc"] =
+        "Apply the DragonflightUI health bar texture, outlined names and enemy level text. Turning this off restores the native look on the plates currently up."
+    L["NameplatesHeaderVisibility"] = "Visibility"
+    L["NameplatesOptionSize"] = "Plate size"
+    L["NameplatesOptionSizeDesc"] = "Scale of the whole plate - Blizzard's own nameplate size setting."
+    L["NameplatesSizeSmall"] = "Small"
+    L["NameplatesSizeMedium"] = "Medium (default)"
+    L["NameplatesSizeLarge"] = "Large"
+    L["NameplatesSizeExtraLarge"] = "Extra large"
+    L["NameplatesSizeHuge"] = "Huge"
+    L["NameplatesOptionClassColors"] = "Class-colored enemy plates"
+    L["NameplatesOptionClassColorsDesc"] = "Color enemy player health bars by class."
+    L["NameplatesOptionFriendlyClassColors"] = "Class-colored friendly plates"
+    L["NameplatesOptionFriendlyClassColorsDesc"] = "Color friendly player health bars by class."
+    L["NameplatesOptionShowEnemies"] = "Show enemy nameplates"
+    L["NameplatesOptionShowEnemiesDesc"] = "Show nameplates for hostile units."
+    L["NameplatesOptionShowFriends"] = "Show friendly nameplates"
+    L["NameplatesOptionShowFriendsDesc"] = "Show nameplates for friendly players."
+    L["NameplatesOptionShowFriendlyNpcs"] = "Show friendly NPC nameplates"
+    L["NameplatesOptionShowFriendlyNpcsDesc"] = "Show nameplates for friendly NPCs."
+    L["NameplatesOptionFriendlyNameOnly"] = "Friendly plates: name only"
+    L["NameplatesOptionFriendlyNameOnlyDesc"] =
+        "Show only the name for friendly players, without a health bar."
+    L["NameplatesOptionForceShowNames"] = "Always show names"
+    L["NameplatesOptionForceShowNamesDesc"] = "Keep unit names visible without a nameplate."
 end
 
 -- config 
@@ -82,6 +130,10 @@ do
     L["ConfigToolbarDiscordTooltip"] = "Contribute ideas & get support."
     L["ConfigToolbarGithub"] = "Github"
     L["ConfigToolbarGithubTooltip"] = "View code, report issues & contribute."
+    L["ConfigToolbarKofi"] = "Ko-fi"
+    L["ConfigToolbarKofiTooltip1"] =
+        "If you enjoy DragonflightUI, consider supporting the ongoing development with a donation!"
+    L["ConfigToolbarKofiTooltip2"] = "Support rakStar91 on Ko-fi."
 end
 
 -- profiles
@@ -495,7 +547,30 @@ do
 
     -- Roll
     L["GroupLootContainerName"] = "Group Loot Container"
-    L["GroupLootContainerDesc"] = ""
+    L["GroupLootContainerDesc"] = "Options for the group loot roll container."
+    L["GroupLootOptionEnabled"] = "Enable Dragonflight loot rolls"
+    L["GroupLootOptionEnabledDesc"] =
+        "Restyle and reposition the group loot roll frames. Turning this OFF requires a /reload to restore the classic look."
+    L["GroupLootOptionPreview"] = "Preview"
+    L["GroupLootOptionPreviewBtn"] = "Show"
+    L["GroupLootOptionPreviewDesc"] =
+        "Show a sample loot roll where yours will appear, for a few seconds."
+    L["GroupLootOptionPreviewCount"] = "Preview rolls"
+    L["GroupLootOptionPreviewCountDesc"] =
+        "How many sample rolls the preview pops, so a whole drop can be judged rather than a single item."
+    L["GroupLootOptionRollSpacing"] = "Spacing between rolls"
+    L["GroupLootOptionRollSpacingDesc"] =
+        "Vertical gap between stacked roll frames when several items drop at once."
+    L["GroupLootOptionScale"] = "Scale"
+    L["GroupLootOptionScaleDesc"] = "Size of the loot roll frames."
+    L["GroupLootOptionShowTopRoll"] = "Show current leading roll"
+    L["GroupLootOptionShowTopRollDesc"] =
+        "Show who is currently winning (or the live tally of choices while rolling) in the corner of each roll frame."
+    L["GroupLootOptionShowWinnerToast"] = "Announce the winner"
+    L["GroupLootOptionShowWinnerToastDesc"] =
+        "Show a short panel naming the winner, their roll and the item once a roll resolves."
+    L["GroupLootOptionShowItemName"] = "Show item name"
+    L["GroupLootOptionShowItemNameDesc"] = "Show the item name on the roll frame."
 
     -- widget below
     L["WidgetBelowName"] = "Widget Below Minimap"
@@ -503,7 +578,20 @@ do
 
     -- widget below
     L["VehicleLeaveButton"] = "Vehicle Leave Button"
-    L["VehicleLeaveButtonDesc"] = ""
+    L["VehicleLeaveButtonDesc"] = "Options for the vehicle leave and request stop button."
+    L["VehicleLeaveOptionEnabled"] = "Enable Request Stop button"
+    L["VehicleLeaveOptionEnabledDesc"] =
+        "Show the button that leaves a vehicle or asks a flight to land early. Turning this OFF hides it entirely; a /reload restores the default look."
+    L["VehicleLeaveOptionPreview"] = "Preview"
+    L["VehicleLeaveOptionPreviewBtn"] = "Show"
+    L["VehicleLeaveOptionPreviewDesc"] =
+        "Show the button where it will appear, for a few seconds. It only exists on a taxi or in a vehicle, so this is the way to place it."
+    L["VehicleLeaveOptionShowFrame"] = "Button frame"
+    L["VehicleLeaveOptionShowFrameDesc"] =
+        "Draw the action-button border around it, the same one the action and pet bars use."
+    L["VehicleLeaveOptionShowGlow"] = "Glow when active"
+    L["VehicleLeaveOptionShowGlowDesc"] =
+        "Light the button with the corner glow an autocasting pet ability gets, while it can be clicked."
 end
 
 -- Buffs
@@ -722,6 +810,9 @@ do
         "Without this, the visibility settings above won't work, but might improve other addon compatibility (e.g. for MinimapAlert) as it does not make frames secure."
 
     L["MinimapTrackerName"] = "Tracker"
+    L["MinimapTrackerManage"] = "Manage the quest tracker"
+    L["MinimapTrackerManageDesc"] =
+        "Let DragonflightUI position and scale the quest tracker. Turn this OFF to leave the tracker completely alone - useful when another quest tracker addon wants to own it. Needs a /reload to hand it back fully."
     L["MinimapDurabilityName"] = "Durability"
     L["MinimapLFGName"] = "LFG"
 end
@@ -1044,9 +1135,13 @@ do
     L["PartyFrameBreakUpLargeNumbersDesc"] = L["PlayerFrameBreakUpLargeNumbersDesc"]
     L["PartyFrameDisableBuffTooltip"] = "Disable Buff Tooltip"
     L["PartyFrameDisableBuffTooltipDesc"] = "Disables the (on mouseover) buff tooltip."
+    L["PartyFrameUseCompactPartyFramesNote"] = "Takes effect after a reload. Blizzard's own switch for this reaches into both party displays at once, and run from addon code it leaves them unable to update during combat - so the value is stored and the game applies it itself on the way in."
+    L["PartyFrameRaidProfileOptions"] = "Blizzard raid profile options"
+    L["PartyFrameRaidProfileOptionsDesc"] = "Opens Blizzard's own Interface options for raid frames - health text, class colours and the like. Frame size and group layout are Edit Mode settings and are in DragonflightUI's Raid section."
 
     -- raid
     L["RaidFrameName"] = "Raid Frame"
+    L["RaidFrameSettingsDesc"] = "Opens Blizzard's own Interface options for raid frames - health text, class colours and the like. The Edit Mode settings, frame size and group layout, are above."
 
     -- Bosss
     L["BossFrameName"] = "BossFrame"
@@ -1110,6 +1205,9 @@ do
     L["DropdownDown"] = "Down"
     L["DropdownLeft"] = "Left"
     L["DropdownRight"] = "Right"
+    L["OptionNever"] = "Never"
+    L["OptionAlways"] = "Always"
+    L["OptionInCombat"] = "In Combat"
 end
 
 -- see comment above
