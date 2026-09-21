@@ -2,6 +2,7 @@
 
 [![Join the Discord](https://img.shields.io/badge/Discord-Join%20the%20community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/c6E2arnkdx)
 [![Download on CurseForge](https://img.shields.io/badge/CurseForge-Download-F16436?style=for-the-badge&logo=curseforge&logoColor=white)](https://www.curseforge.com/wow/addons/dragonflight-ui-classic-revived)
+[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20rakStar91-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/rakstar91)
 
 ### 💬 Talk to us on Discord: **[discord.gg/c6E2arnkdx](https://discord.gg/c6E2arnkdx)**
 
@@ -21,7 +22,7 @@ In the meantime, Classic Era **1.15.9** backported the Midnight-era UI (Edit Mod
 
 The compatibility overhaul for that patch was developed as [PR #693](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/pull/693) against the original repository, tested and iterated on with players in the field — but with nobody upstream to merge it, there was nowhere for the work to live.
 
-This repository is that home. It carries the **full commit history of the original project** plus every fix since, and it is maintained by [@MendleM](https://github.com/MendleM) and [@rakStar91](https://github.com/rakStar91) together with the community.
+This repository is that home. It carries the **full commit history of the original project** plus every fix since, and it is maintained by [@rakStar91](https://github.com/rakStar91) together with the community.
 
 ## Install
 
@@ -32,17 +33,17 @@ This repository is that home. It carries the **full commit history of the origin
 
 ## Supported game versions
 
-| Flavor | Status |
-| --- | --- |
-| Classic Era 1.15.9+ (Midnight UI backport) | Primary target, actively tested |
-| TBC 2.5.6+ / MoP 5.5.4+ | Supported — most paths are shared and feature-detected, less field testing |
-| Wrath / Cata Classic | Inherited from upstream, largely untouched |
+| Flavor                                     | Status                                                                     |
+| ------------------------------------------ | -------------------------------------------------------------------------- |
+| Classic Era 1.15.9+ (Midnight UI backport) | Primary target, actively tested                                            |
+| TBC 2.5.6+ / MoP 5.5.4+                    | Supported — most paths are shared and feature-detected, less field testing |
+| Wrath / Cata Classic                       | Inherited from upstream, largely untouched                                 |
 
 ## Reporting bugs
 
 Two ways, both open to everyone:
 
-- **[GitHub Issues](https://github.com/MendleM/DragonflightUI-Revived/issues)** — anyone can open one, no permission needed. Best for anything reproducible.
+- **[GitHub Issues](https://github.com/rakStar91/DragonflightUI-Revived/issues)** — anyone can open one, no permission needed. Best for anything reproducible.
 - **[Discord: Dragonflight UI Classic - Revived](https://discord.gg/c6E2arnkdx)** — for quick questions, screenshots and general chat.
 
 A good report includes:
@@ -61,7 +62,7 @@ A good report includes:
 2. Make your change (match the surrounding code style — the repo ships a `LuaFormatter.config`)
 3. Open a PR against `main` describing what it fixes and how you tested it
 
-`main` is protected: contributions land through pull requests, and only [@MendleM](https://github.com/MendleM) and [@rakStar91](https://github.com/rakStar91) can merge them. Force-pushes and branch deletion are blocked. No approval count is enforced, so small fixes do not get stuck waiting on a second reviewer.
+`main` is protected: contributions land through pull requests, and only [@rakStar91](https://github.com/rakStar91) can merge them. Force-pushes and branch deletion are blocked. No approval count is enforced, so small fixes do not get stuck waiting on a second reviewer.
 
 Useful to know when working on Era 1.15.9:
 
@@ -92,10 +93,15 @@ Configure in-game with `/df` (or `/dragonflight`), with full profile support, or
 - Unitframe
 - Utility
 
+## Support
+
+If you want to support the ongoing development and the countless hours invested into DragonflightUI Revived:
+
+☕ **[Support rakStar91 on Ko-fi](https://ko-fi.com/rakstar91)**
+
 ## Credits
 
-- **[MendleM](https://github.com/MendleM)** — maintainer of DragonflightUI Revived.
-- **[rakStar91](https://github.com/rakStar91)** — maintainer of DragonflightUI Revived.
+- **[rakStar91](https://github.com/rakStar91)** — maintainer of DragonflightUI Revived. Support development on [Ko-fi](https://ko-fi.com/rakstar91).
 - **[Karl-Heinz Schneider](https://github.com/Karl-HeinzSchneider)** — original author of DragonflightUI Classic. This project is his work continued; all of it stands on that foundation. If you got years of use out of the addon, he still has a [tip jar](https://www.buymeacoffee.com/karlheinzschneider).
 - **[@insanerage80](https://github.com/insanerage80)** — packaging and publishing the revived build on CurseForge, and running the Discord.
 - **[@icebreethe](https://github.com/icebreethe)** — TBC 2.5.6 / MoP 5.5.4 compatibility work.

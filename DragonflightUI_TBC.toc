@@ -1,11 +1,13 @@
 ## Interface: 20506
 ## Title: DragonflightUI [|cff8080ffTBC Classic|r]
-## Notes: Brings the modern retail UI to classic.|n|cffbbbbbbMaintained by MendleM / rakStar91|r|n|cffbbbbbbOriginally by Karl-Heinz Schneider|r
-## Notes-esES: La interfaz moderna para la versión clásica.|n|cffbbbbbbMantenido por MendleM / rakStar91|r|n|cffbbbbbbOriginalmente por Karl-Heinz Schneider|r
-## Notes-esMX: La interfaz moderna para la versión clásica.|n|cffbbbbbbMantenido por MendleM / rakStar91|r|n|cffbbbbbbOriginalmente por Karl-Heinz Schneider|r
-## Author: MendleM, rakStar91, Karl-Heinz Schneider
-## X-Website: https://github.com/MendleM/DragonflightUI-Revived
+## Notes: Brings the modern retail UI to classic.|n|cffbbbbbbMaintained by rakStar91|r|n|cffbbbbbbOriginally by Karl-Heinz Schneider|r|n|n|TInterface/Addons/DragonflightUI/Textures/Art/kofi:12:12|t |cff82c5ffko-fi.com/rakstar91|r
+## Notes-esES: La interfaz moderna para la versión clásica.|n|cffbbbbbbMantenido por rakStar91|r|n|cffbbbbbbOriginalmente por Karl-Heinz Schneider|r|n|n|TInterface/Addons/DragonflightUI/Textures/Art/kofi:12:12|t |cff82c5ffko-fi.com/rakstar91|r
+## Notes-esMX: La interfaz moderna para la versión clásica.|n|cffbbbbbbMantenido por rakStar91|r|n|cffbbbbbbOriginalmente por Karl-Heinz Schneider|r|n|n|TInterface/Addons/DragonflightUI/Textures/Art/kofi:12:12|t |cff82c5ffko-fi.com/rakstar91|r
+## Author: rakStar91, Karl-Heinz Schneider
+## X-Website: https://github.com/rakStar91/DragonflightUI-Revived
 ## X-Curse-Project-ID: 1602557
+## X-Donate: https://ko-fi.com/rakstar91
+## X-Ko-fi: https://ko-fi.com/rakstar91
 ## Version: 0.46.1
 ## IconTexture: Interface\Icons\INV_Misc_Head_Dragon_01
 ## X-Date: @project-date-integer@
