@@ -92,17 +92,15 @@ local rollOptions = {
 
 rollOptions.args.enabled = {
     type = 'toggle',
-    name = 'Enable Dragonflight loot rolls',
-    desc = 'Restyle and reposition the group loot roll frames.'
-        .. ' Turning this OFF requires a /reload to restore the classic look.'
-        .. getDefaultStr('enabled', 'general'),
+    name = L["GroupLootOptionEnabled"],
+    desc = L["GroupLootOptionEnabledDesc"] .. getDefaultStr('enabled', 'general'),
     order = 0.5
 }
 rollOptions.args.preview = {
     type = 'execute',
-    name = 'Preview',
-    btnName = 'Show',
-    desc = 'Show a sample loot roll where yours will appear, for a few seconds.',
+    name = L["GroupLootOptionPreview"],
+    btnName = L["GroupLootOptionPreviewBtn"],
+    desc = L["GroupLootOptionPreviewDesc"],
     func = function()
         Module:ShowPreview()
     end,
@@ -110,9 +108,8 @@ rollOptions.args.preview = {
 }
 rollOptions.args.previewCount = {
     type = 'range',
-    name = 'Preview rolls',
-    desc = 'How many sample rolls the preview pops, so a whole drop can be judged'
-        .. ' rather than a single item.' .. getDefaultStr('previewCount', 'general'),
+    name = L["GroupLootOptionPreviewCount"],
+    desc = L["GroupLootOptionPreviewCountDesc"] .. getDefaultStr('previewCount', 'general'),
     min = 1,
     max = 4,
     bigStep = 1,
@@ -120,9 +117,8 @@ rollOptions.args.previewCount = {
 }
 rollOptions.args.rollSpacing = {
     type = 'range',
-    name = 'Spacing between rolls',
-    desc = 'Vertical gap between stacked roll frames when several items drop at once.'
-        .. getDefaultStr('rollSpacing', 'general'),
+    name = L["GroupLootOptionRollSpacing"],
+    desc = L["GroupLootOptionRollSpacingDesc"] .. getDefaultStr('rollSpacing', 'general'),
     min = 0,
     max = 100,
     bigStep = 1,
@@ -131,8 +127,8 @@ rollOptions.args.rollSpacing = {
 }
 rollOptions.args.scale = {
     type = 'range',
-    name = 'Scale',
-    desc = 'Size of the loot roll frames.' .. getDefaultStr('scale', 'general'),
+    name = L["GroupLootOptionScale"],
+    desc = L["GroupLootOptionScaleDesc"] .. getDefaultStr('scale', 'general'),
     min = 0.5,
     max = 2,
     bigStep = 0.05,
@@ -141,22 +137,20 @@ rollOptions.args.scale = {
 }
 rollOptions.args.showTopRoll = {
     type = 'toggle',
-    name = 'Show current leading roll',
-    desc = 'Show who is currently winning (or the live tally of choices while rolling)'
-        .. ' in the corner of each roll frame.' .. getDefaultStr('showTopRoll', 'general'),
+    name = L["GroupLootOptionShowTopRoll"],
+    desc = L["GroupLootOptionShowTopRollDesc"] .. getDefaultStr('showTopRoll', 'general'),
     order = 0.8
 }
 rollOptions.args.showWinnerToast = {
     type = 'toggle',
-    name = 'Announce the winner',
-    desc = 'Show a short panel naming the winner, their roll and the item once a roll resolves.'
-        .. getDefaultStr('showWinnerToast', 'general'),
+    name = L["GroupLootOptionShowWinnerToast"],
+    desc = L["GroupLootOptionShowWinnerToastDesc"] .. getDefaultStr('showWinnerToast', 'general'),
     order = 0.9
 }
 rollOptions.args.showItemName = {
     type = 'toggle',
-    name = 'Show item name',
-    desc = 'Show the item name on the roll frame.' .. getDefaultStr('showItemName', 'general'),
+    name = L["GroupLootOptionShowItemName"],
+    desc = L["GroupLootOptionShowItemNameDesc"] .. getDefaultStr('showItemName', 'general'),
     order = 1.0
 }
 

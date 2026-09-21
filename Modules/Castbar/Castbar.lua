@@ -459,8 +459,8 @@ if DF.Era then
     local moreOptions = {
         showRank = {
             type = 'toggle',
-            name = 'Show Rank',
-            desc = '' .. getDefaultStr('showRank', 'target'),
+            name = L["CastbarTableShowRank"],
+            desc = L["CastbarTableShowRankDesc"] .. getDefaultStr('showRank', 'target'),
             order = 20,
             new = false,
             editmode = true

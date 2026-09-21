@@ -508,9 +508,9 @@ function SubModuleMixin:SetupOptions()
     }
 
     local partyBuffTooltipTable = {
-        {value = 'NEVER', text = 'Never', tooltip = 'descr', label = 'label'},
-        {value = 'ALWAYS', text = 'Always', tooltip = 'descr', label = 'label'},
-        {value = 'INCOMBAT', text = 'In Combat', tooltip = 'descr', label = 'label'}
+        {value = 'NEVER', text = L["OptionNever"] or 'Never', tooltip = 'descr', label = 'label'},
+        {value = 'ALWAYS', text = L["OptionAlways"] or 'Always', tooltip = 'descr', label = 'label'},
+        {value = 'INCOMBAT', text = L["OptionInCombat"] or 'In Combat', tooltip = 'descr', label = 'label'}
     }
 
     if DF.Wrath then
@@ -582,9 +582,10 @@ function SubModuleMixin:SetupOptions()
                 type = 'toggle',
                 name = USE_RAID_STYLE_PARTY_FRAMES,
                 desc = OPTION_TOOLTIP_USE_RAID_STYLE_PARTY_FRAMES .. '\n\n' ..
-                    'Takes effect after a reload. Blizzard\'s own switch for this reaches into both party displays ' ..
+                    (L["PartyFrameUseCompactPartyFramesNote"] or
+                    ('Takes effect after a reload. Blizzard\'s own switch for this reaches into both party displays ' ..
                     'at once, and run from addon code it leaves them unable to update during combat - so the value ' ..
-                    'is stored and the game applies it itself on the way in.',
+                    'is stored and the game applies it itself on the way in.')),
                 group = 'headerStyling',
                 order = 15,
                 blizzard = true,
@@ -597,11 +598,12 @@ function SubModuleMixin:SetupOptions()
             -- directly in the Raid section.
             raidFrameBtn = {
                 type = 'execute',
-                name = 'Blizzard raid profile options',
-                desc = 'Opens Blizzard\'s own Interface options for raid frames - health text, class colours and ' ..
+                name = L["PartyFrameRaidProfileOptions"] or 'Blizzard raid profile options',
+                desc = L["PartyFrameRaidProfileOptionsDesc"] or
+                    ('Opens Blizzard\'s own Interface options for raid frames - health text, class colours and ' ..
                     'the like. Frame size and group layout are Edit Mode settings and are in DragonflightUI\'s ' ..
-                    'Raid section.',
-                btnName = 'Open',
+                    'Raid section.'),
+                btnName = L['Open'] or OPEN_LOG or 'Open',
                 func = function()
                     Settings.OpenToCategory(Settings.INTERFACE_CATEGORY_ID, RAID_FRAMES_LABEL);
                     PlaySound(SOUNDKIT.IG_MAINMENU_OPTION);

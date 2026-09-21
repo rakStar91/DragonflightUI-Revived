@@ -113,9 +113,9 @@ function SubModuleMixin:SetupOptions()
     }
 
     local partyBuffTooltipTable = {
-        {value = 'NEVER', text = 'Never', tooltip = 'descr', label = 'label'},
-        {value = 'ALWAYS', text = 'Always', tooltip = 'descr', label = 'label'},
-        {value = 'INCOMBAT', text = 'In Combat', tooltip = 'descr', label = 'label'}
+        {value = 'NEVER', text = L["OptionNever"] or 'Never', tooltip = 'descr', label = 'label'},
+        {value = 'ALWAYS', text = L["OptionAlways"] or 'Always', tooltip = 'descr', label = 'label'},
+        {value = 'INCOMBAT', text = L["OptionInCombat"] or 'In Combat', tooltip = 'descr', label = 'label'}
     }
 
     if DF.Wrath then

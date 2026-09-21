@@ -52,11 +52,11 @@ local CVAR_ENUMS = {
         enum = 'NamePlateSize',
         order = {'Small', 'Medium', 'Large', 'ExtraLarge', 'Huge'},
         labels = {
-            Small = 'Small',
-            Medium = 'Medium (default)',
-            Large = 'Large',
-            ExtraLarge = 'Extra large',
-            Huge = 'Huge'
+            Small = L["NameplatesSizeSmall"],
+            Medium = L["NameplatesSizeMedium"],
+            Large = L["NameplatesSizeLarge"],
+            ExtraLarge = L["NameplatesSizeExtraLarge"],
+            Huge = L["NameplatesSizeHuge"]
         }
     }
 }
@@ -133,41 +133,36 @@ end
 -- style option used to pass a map under 'values', so no menu was built at all
 -- and the style could not be changed from this page.
 local styleValues = {
-    {value = 'THIN', text = 'Dragonflight (thin bar, name above)'},
-    {value = 'MODERN', text = 'Midnight (thick bar, name inside)'},
-    {value = 'CLASSIC', text = 'Classic (border ring, level box)'},
-    {value = 'BLIZZARD', text = "Don't manage (use Blizzard's setting)"}
+    {value = 'THIN', text = L["NameplatesStyleThin"]},
+    {value = 'MODERN', text = L["NameplatesStyleModern"]},
+    {value = 'CLASSIC', text = L["NameplatesStyleClassic"]},
+    {value = 'BLIZZARD', text = L["NameplatesStyleBlizzard"]}
 }
 
 local options = {
-    name = 'Nameplates',
-    desc = 'Nameplates',
+    name = L["ModuleNameplates"],
+    desc = L["ModuleNameplates"],
     get = getOption,
     set = setOption,
     type = 'group',
     args = {
-        headerStyle = {type = 'header', name = 'Style', desc = '', order = 0, isExpanded = true},
+        headerStyle = {type = 'header', name = L["NameplatesHeaderStyle"], desc = '', order = 0, isExpanded = true},
         style = {
             type = 'select',
-            name = 'Nameplate style',
-            desc = 'Which nameplate look to enforce.'
-                .. " Pick \"Don't manage\" to leave the style entirely to Blizzard's own settings"
-                .. ' - useful if you change it there and want it to stick across reloads.'
-                .. getDefaultStr('style'),
+            name = L["NameplatesOptionStyle"],
+            desc = L["NameplatesOptionStyleDesc"] .. getDefaultStr('style'),
             dropdownValues = styleValues,
             order = 1,
             group = 'headerStyle'
         },
         styleTexture = {
             type = 'toggle',
-            name = 'DragonflightUI plate styling',
-            desc = 'Apply the DragonflightUI health bar texture, outlined names and enemy level text.'
-                .. ' Turning this off restores the native look on the plates currently up.'
-                .. getDefaultStr('styleTexture'),
+            name = L["NameplatesOptionStyleTexture"],
+            desc = L["NameplatesOptionStyleTextureDesc"] .. getDefaultStr('styleTexture'),
             order = 2,
             group = 'headerStyle'
         },
-        headerVisibility = {type = 'header', name = 'Visibility', desc = '', order = 20, isExpanded = true}
+        headerVisibility = {type = 'header', name = L["NameplatesHeaderVisibility"], desc = '', order = 20, isExpanded = true}
     }
 }
 
@@ -192,8 +187,8 @@ do
         end
         args.size = {
             type = 'select',
-            name = 'Plate size',
-            desc = "Scale of the whole plate - Blizzard's own nameplate size setting.",
+            name = L["NameplatesOptionSize"],
+            desc = L["NameplatesOptionSizeDesc"],
             dropdownValues = values,
             order = 3,
             group = 'headerStyle',
@@ -201,17 +196,17 @@ do
         }
     end
 
-    addToggle('classColors', 'Class-colored enemy plates', 'Color enemy player health bars by class.', 4, 'headerStyle')
-    addToggle('friendlyClassColors', 'Class-colored friendly plates', 'Color friendly player health bars by class.', 5,
+    addToggle('classColors', L["NameplatesOptionClassColors"], L["NameplatesOptionClassColorsDesc"], 4, 'headerStyle')
+    addToggle('friendlyClassColors', L["NameplatesOptionFriendlyClassColors"], L["NameplatesOptionFriendlyClassColorsDesc"], 5,
               'headerStyle')
 
-    addToggle('showEnemies', 'Show enemy nameplates', 'Show nameplates for hostile units.', 21, 'headerVisibility')
-    addToggle('showFriends', 'Show friendly nameplates', 'Show nameplates for friendly players.', 22, 'headerVisibility')
-    addToggle('showFriendlyNpcs', 'Show friendly NPC nameplates', 'Show nameplates for friendly NPCs.', 23,
+    addToggle('showEnemies', L["NameplatesOptionShowEnemies"], L["NameplatesOptionShowEnemiesDesc"], 21, 'headerVisibility')
+    addToggle('showFriends', L["NameplatesOptionShowFriends"], L["NameplatesOptionShowFriendsDesc"], 22, 'headerVisibility')
+    addToggle('showFriendlyNpcs', L["NameplatesOptionShowFriendlyNpcs"], L["NameplatesOptionShowFriendlyNpcsDesc"], 23,
               'headerVisibility')
-    addToggle('friendlyNameOnly', 'Friendly plates: name only',
-              'Show only the name for friendly players, without a health bar.', 24, 'headerVisibility')
-    addToggle('forceShowNames', 'Always show names', 'Keep unit names visible without a nameplate.', 25,
+    addToggle('friendlyNameOnly', L["NameplatesOptionFriendlyNameOnly"],
+              L["NameplatesOptionFriendlyNameOnlyDesc"], 24, 'headerVisibility')
+    addToggle('forceShowNames', L["NameplatesOptionForceShowNames"], L["NameplatesOptionForceShowNamesDesc"], 25,
               'headerVisibility')
 end
 

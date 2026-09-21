@@ -187,6 +187,7 @@ function DragonFlightUIConfigMixin:GetDisabledModuleData(key)
 
     self.DisabledModuleData = self.DisabledModuleData or {}
     if not self.DisabledModuleData[key] then
+        local localizedModuleName = L['Module' .. moduleName] or moduleName
         self.DisabledModuleData[key] = {
             name = elementData.elementInfo.name,
             sub = 'modules',
@@ -198,9 +199,9 @@ function DragonFlightUIConfigMixin:GetDisabledModuleData(key)
                 args = {
                     [moduleName] = {
                         type = 'toggle',
-                        name = 'Enable the ' .. moduleName .. ' module',
-                        desc = 'This module is turned off, so its options are hidden.'
-                            .. ' Enable it here, then /reload to configure it.',
+                        name = string.format(L["ConfigModuleEnableModule"] or 'Enable the %s module', localizedModuleName),
+                        desc = L["ConfigModuleEnableModuleDesc"] or ('This module is turned off, so its options are hidden.'
+                            .. ' Enable it here, then /reload to configure it.'),
                         order = 1
                     }
                 }
@@ -382,9 +383,16 @@ function DragonFlightUIConfigMixin:AddToolbar()
     table.insert(t, {
         name = L["ConfigToolbarGithub"],
         tooltip = L["ConfigToolbarGithubTooltip"],
-        link = "https://github.com/MendleM/DragonflightUI-Revived",
+        link = "https://github.com/rakStar91/DragonflightUI-Revived",
         icon = 'github',
         sizeDelta = 4
+    })
+    table.insert(t, {
+        name = L["ConfigToolbarKofi"] or "Ko-fi",
+        tooltipTable = {L["ConfigToolbarKofiTooltip1"], ' ', L["ConfigToolbarKofiTooltip2"]},
+        link = "https://ko-fi.com/rakstar91",
+        icon = 'kofi',
+        sizeDelta = 2
     })
 
     local dialogOpen = false;
