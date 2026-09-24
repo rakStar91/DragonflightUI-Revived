@@ -413,7 +413,7 @@ do
     L["ActionbarRangeHeaderNotUsableDesc"] = ""
     L["ActionbarRangeHeaderOutOfRange"] = "Out Of Range"
     L["ActionbarRangeHeaderOutOfRangeDesc"] = ""
-    L["ActionbarRangeHeaderOutOfMana"] = "Out Of Mana"
+    L["ActionbarRangeHeaderOutOfMana"] = "法力不足"
     L["ActionbarRangeHeaderOutOfManaDesc"] = ""
 
     -- XP
@@ -429,6 +429,13 @@ do
     L["XPOptionsAlwaysShowXPTextDesc"] = ""
     L["XPOptionsShowXPPercent"] = "显示经验百分比"
     L["XPOptionsShowXPPercentDesc"] = ""
+    L["StatusbarXP"] = "经验"
+    L["StatusbarRested"] = "双倍"
+    L["StatusbarTooltipXPLeft"] = "剩余经验:"
+    L["StatusbarTooltipTimeToMaxRested"] = "达最大双倍经验时间:"
+    L["StatusbarTooltipCompletedQuests"] = "已完成任务:"
+    L["StatusbarTooltipCompletedQuestsXP"] = "已完成任务经验:"
+    L["QuestLogCompleted"] = "已完成"
 
     -- rep
     L["RepOptionsName"] = "声望条"

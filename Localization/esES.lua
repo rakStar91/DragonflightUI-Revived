@@ -392,6 +392,13 @@ do
     L["XPOptionsAlwaysShowXPTextDesc"] = ""
     L["XPOptionsShowXPPercent"] = "Mostrar porcentaje de EXP"
     L["XPOptionsShowXPPercentDesc"] = ""
+    L["StatusbarXP"] = "EXP"
+    L["StatusbarRested"] = "Descansado"
+    L["StatusbarTooltipXPLeft"] = "EXP restante:"
+    L["StatusbarTooltipTimeToMaxRested"] = "Tiempo para descanso máx.:"
+    L["StatusbarTooltipCompletedQuests"] = "Misiones completadas:"
+    L["StatusbarTooltipCompletedQuestsXP"] = "EXP de misiones completadas:"
+    L["QuestLogCompleted"] = "Completado"
 
     -- Reputación
     L["RepOptionsName"] = "Reputación"

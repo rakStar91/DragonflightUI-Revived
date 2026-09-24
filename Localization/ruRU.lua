@@ -438,6 +438,13 @@ do
     L["XPOptionsAlwaysShowXPTextDesc"] = ""
     L["XPOptionsShowXPPercent"] = "Показывать процент опыта"
     L["XPOptionsShowXPPercentDesc"] = ""
+    L["StatusbarXP"] = "Опыт"
+    L["StatusbarRested"] = "Бодрость"
+    L["StatusbarTooltipXPLeft"] = "Осталось опыта:"
+    L["StatusbarTooltipTimeToMaxRested"] = "До максимума бодрости:"
+    L["StatusbarTooltipCompletedQuests"] = "Выполнено заданий:"
+    L["StatusbarTooltipCompletedQuestsXP"] = "Опыт за выполненные задания:"
+    L["QuestLogCompleted"] = "Выполнено"
 
     -- rep
     L["RepOptionsName"] = "Полоса репутации"
