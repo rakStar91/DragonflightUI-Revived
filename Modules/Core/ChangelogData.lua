@@ -24,6 +24,27 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- just the one after it.
 DF.ChangelogData = {
     {
+        version = '0.46.2',
+        title = 'Quest Log & XP Bar Localization',
+        date = '24 September 2026',
+        intro = 'Localized the XP status bar display and tooltip, and localized the completed quest counter across Classic Era, TBC, Wrath, and Cataclysm quest log frames.',
+        sections = {
+            {
+                title = 'Highlights',
+                items = {
+                    'XP status bar and tooltip fully localized across German, Spanish, Russian, and Simplified Chinese.',
+                    'Completed quest counter in Quest Log now properly localized across Era, TBC, Wrath, and Cataclysm.'
+                }
+            }, {
+                title = 'Localization',
+                items = {
+                    'Localized XP status bar text and tooltip (XP, Rested, XP left, Time to max rested, Completed Quests & XP).',
+                    'Localized completed quests counter in Quest Log across Era, TBC, and Wrath/Cata.'
+                }
+            }
+        }
+    },
+    {
         version = '0.46.1',
         title = 'Quest Scrollbar Fix & Localization',
         date = '21 September 2026',
