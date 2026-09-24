@@ -1,5 +1,6 @@
 local addonName, addonTable = ...;
 local Helper = addonTable.Helper;
+local L = addonTable.L or LibStub("AceLocale-3.0"):GetLocale("DragonflightUI")
 ---@diagnostic disable: undefined-global
 ---@class DragonflightUI
 ---@diagnostic disable-next-line: assign-type-mismatch
@@ -715,9 +716,9 @@ function DragonflightUIMixin:ChangeQuestLogFrameEra()
         count.Update = function()
             local questXPInfo = DragonflightUIMixin:GetCompletedQuestsAndXP();
 
-            local first = 'Completed: ' .. '|cffffffff' .. tostring(questXPInfo.numCompletedQuests) .. '/' ..
+            local first = (L['QuestLogCompleted'] or 'Completed') .. ': ' .. '|cffffffff' .. tostring(questXPInfo.numCompletedQuests) .. '/' ..
                               tostring(questXPInfo.numQuests) .. '|r';
-            local second = 'XP: ' .. '|cffffffff' .. FormatLargeNumber(tostring(questXPInfo.numQuestXP)) .. '|r'
+            local second = (L['StatusbarXP'] or 'XP') .. ': ' .. '|cffffffff' .. FormatLargeNumber(tostring(questXPInfo.numQuestXP)) .. '|r'
             textOne:SetText(first .. '   ' .. second);
 
             local hPadding = 15;
@@ -855,9 +856,9 @@ function DragonflightUIMixin:ChangeQuestLogFrameCata()
         count.Update = function()
             local questXPInfo = DragonflightUIMixin:GetCompletedQuestsAndXP();
 
-            local first = 'Completed: ' .. '|cffffffff' .. tostring(questXPInfo.numCompletedQuests) .. '/' ..
+            local first = (L['QuestLogCompleted'] or 'Completed') .. ': ' .. '|cffffffff' .. tostring(questXPInfo.numCompletedQuests) .. '/' ..
                               tostring(questXPInfo.numQuests) .. '|r';
-            local second = 'XP: ' .. '|cffffffff' .. FormatLargeNumber(tostring(questXPInfo.numQuestXP)) .. '|r'
+            local second = (L['StatusbarXP'] or 'XP') .. ': ' .. '|cffffffff' .. FormatLargeNumber(tostring(questXPInfo.numQuestXP)) .. '|r'
             textOne:SetText(first .. '   ' .. second);
 
             local hPadding = 15;

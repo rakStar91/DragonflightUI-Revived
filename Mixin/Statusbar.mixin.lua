@@ -3,6 +3,7 @@
 local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- this file gets no addonTable, so reach Helper through the global it exports
 local Helper = _G['DragonflightUI_Helper']
+local L = LibStub("AceLocale-3.0"):GetLocale("DragonflightUI")
 
 DragonflightUIXPBarMixin = {}
 
@@ -140,18 +141,18 @@ function DragonflightUIXPBarMixin:SetupTooltip()
         local restedPercent = 100 * restedXP / restedMax
 
         GameTooltip:AddDoubleLine(' ')
-        GameTooltip:AddDoubleLine('XP: ',
+        GameTooltip:AddDoubleLine((L['StatusbarXP'] or 'XP') .. ':',
                                   '|cFFFFFFFF' .. FormatLargeNumber(playerCurrXP) .. '/' ..
                                       FormatLargeNumber(playerMaxXP) .. ' (' .. string.format('%.2f', playerPercent) ..
                                       '%)')
-        GameTooltip:AddDoubleLine('XP left:', '|cFFFFFFFF' .. FormatLargeNumber(playerXPLeft) .. ' (' ..
+        GameTooltip:AddDoubleLine(L['StatusbarTooltipXPLeft'] or 'XP left:', '|cFFFFFFFF' .. FormatLargeNumber(playerXPLeft) .. ' (' ..
                                       string.format('%.2f', playerXPLeftPercent) .. '%)')
-        GameTooltip:AddDoubleLine('Rested: ', '|cFFFFFFFF' .. FormatLargeNumber(restedXP) .. ' (' ..
+        GameTooltip:AddDoubleLine((L['StatusbarRested'] or 'Rested') .. ':', '|cFFFFFFFF' .. FormatLargeNumber(restedXP) .. ' (' ..
                                       string.format('%.2f', restedPercent) .. '%)')
 
         if restedPercent < 100 then
             local restedTime = (100 * (restedMax - restedXP) / restedMax) / 10 * 3 * 8 * 60 * 60
-            GameTooltip:AddDoubleLine('Time to max rested:', '|cFFFFFFFF' .. SecondsToTime(restedTime))
+            GameTooltip:AddDoubleLine(L['StatusbarTooltipTimeToMaxRested'] or 'Time to max rested:', '|cFFFFFFFF' .. SecondsToTime(restedTime))
         end
 
         do
@@ -159,10 +160,10 @@ function DragonflightUIXPBarMixin:SetupTooltip()
             GameTooltip:AddDoubleLine(' ')
             local questXPInfo = DragonflightUIMixin:GetCompletedQuestsAndXP();
 
-            GameTooltip:AddDoubleLine('Completed Quests:',
+            GameTooltip:AddDoubleLine(L['StatusbarTooltipCompletedQuests'] or 'Completed Quests:',
                                       '|cFFFFFFFF' .. questXPInfo.numCompletedQuests .. ' / ' .. questXPInfo.numQuests)
-            GameTooltip:AddDoubleLine('Completed Quests XP:',
-                                      '|cFFFFFFFF' .. FormatLargeNumber(questXPInfo.numQuestXP) .. ' XP')
+            GameTooltip:AddDoubleLine(L['StatusbarTooltipCompletedQuestsXP'] or 'Completed Quests XP:',
+                                      '|cFFFFFFFF' .. FormatLargeNumber(questXPInfo.numQuestXP) .. ' ' .. (L['StatusbarXP'] or 'XP'))
         end
 
         GameTooltip:Show()
@@ -294,12 +295,12 @@ function DragonflightUIXPBarMixin:UpdateText()
     local shortPlayerCurrXP = FormatLargeNumber(playerCurrXP)
     local shortPlayerMax = FormatLargeNumber(playerMaxXP)
 
-    self.Text:SetText('XP: ' .. shortPlayerCurrXP .. '/' .. shortPlayerMax)
+    self.Text:SetText((L['StatusbarXP'] or 'XP') .. ': ' .. shortPlayerCurrXP .. '/' .. shortPlayerMax)
 
     local textPercentText = ' = ' .. string.format('%.1f', playerPercent) .. '%'
 
     if restedPercent > 0 then
-        textPercentText = textPercentText .. ' (' .. string.format('%.1f', restedPercent) .. '% Rested)'
+        textPercentText = textPercentText .. ' (' .. string.format('%.1f', restedPercent) .. '% ' .. (L['StatusbarRested'] or 'Rested') .. ')'
     end
     self.TextPercent:SetText(textPercentText)
 
