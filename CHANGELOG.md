@@ -2,10 +2,16 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.46.1`.
+May 2026). Current builds report version `0.46.2`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.46.2 — Quest Log & XP Bar Localization (24 September 2026)
+Localized the XP status bar text and tooltip across all supported locales, and localized the completed quest counter across Classic Era, TBC, Wrath, and Cataclysm quest logs.
+### Localization
+- Localized XP status bar text and tooltip (XP, Rested, XP left, Time to max rested, Completed Quests & XP).
+- Localized completed quests counter in Quest Log across Era, TBC, and Wrath/Cata.
 
 ## 0.46.1 — Quest Scrollbar Fix & Localization (21 September 2026)
 Fixed the QuestFrame scrollbar (detail/reward/progress/greeting panels) in TBC Anniversary 2.5.6 to use the Dragonflight-style track textures, and completed full localization coverage across German, Spanish, Russian, and Simplified Chinese for config panels, dropdowns, and newly added options.

@@ -460,6 +460,13 @@ do
     L["XPOptionsAlwaysShowXPTextDesc"] = "Zeigt den Erfahrungstext dauerhaft auf der Leiste an."
     L["XPOptionsShowXPPercent"] = "Prozentwert anzeigen"
     L["XPOptionsShowXPPercentDesc"] = "Zeigt die Erfahrung in Prozent an."
+    L["StatusbarXP"] = "EP"
+    L["StatusbarRested"] = "Erholt"
+    L["StatusbarTooltipXPLeft"] = "Verbleibende EP:"
+    L["StatusbarTooltipTimeToMaxRested"] = "Zeit bis voll erholt:"
+    L["StatusbarTooltipCompletedQuests"] = "Abgeschlossene Quests:"
+    L["StatusbarTooltipCompletedQuestsXP"] = "EP abgeschlossener Quests:"
+    L["QuestLogCompleted"] = "Abgeschlossen"
 end
 
 -- rep
