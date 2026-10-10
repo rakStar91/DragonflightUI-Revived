@@ -1217,5 +1217,17 @@ do
     L["OptionInCombat"] = "战斗中"
 end
 
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "最大生命值。如果你的生命值降为零,你就会死亡。"
+    L["StatsRunSpeed"] = "奔跑速度"
+    L["StatsFlightSpeed"] = "飞行速度"
+    L["StatsSwimSpeed"] = "游泳速度"
+    L["StatsManaCasting"] = "施法时每5秒法力回复"
+    L["StatsManaNotCasting"] = "非施法时每5秒法力回复"
+    L["StatsCritAttacks"] = "攻击造成额外伤害的几率。"
+    L["StatsCritSpells"] = "法术造成额外伤害的几率。"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_CN[k] = v; end

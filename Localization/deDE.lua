@@ -1221,6 +1221,18 @@ do
     DF.KEY_REPLACEMENTS = KEY_REPLACEMENTS;
 end
 
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "Maximale Gesundheit. Wenn Eure Gesundheit auf Null sinkt, sterbt Ihr."
+    L["StatsRunSpeed"] = "Laufgeschwindigkeit"
+    L["StatsFlightSpeed"] = "Fluggeschwindigkeit"
+    L["StatsSwimSpeed"] = "Schwimmgeschwindigkeit"
+    L["StatsManaCasting"] = "Mana alle 5 Sek. beim Zaubern"
+    L["StatsManaNotCasting"] = "Mana alle 5 Sek. ohne Zaubern"
+    L["StatsCritAttacks"] = "Chance, dass Angriffe zusätzlichen Schaden verursachen."
+    L["StatsCritSpells"] = "Chance, dass Zauber zusätzlichen Schaden verursachen."
+end
+
 -- see comment above
 for k, v in pairs(L) do L_DE[k] = v; end
 

@@ -1225,6 +1225,18 @@ do
     L["OptionInCombat"] = "En combate"
 end
 
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "Salud máxima. Si tu salud llega a cero, morirás."
+    L["StatsRunSpeed"] = "Velocidad de carrera"
+    L["StatsFlightSpeed"] = "Velocidad de vuelo"
+    L["StatsSwimSpeed"] = "Velocidad de natación"
+    L["StatsManaCasting"] = "Maná cada 5 s al lanzar hechizos"
+    L["StatsManaNotCasting"] = "Maná cada 5 s sin lanzar hechizos"
+    L["StatsCritAttacks"] = "Probabilidad de que los ataques causen daño adicional."
+    L["StatsCritSpells"] = "Probabilidad de que los hechizos causen daño adicional."
+end
+
 local L_ES = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esES")
 local L_MX = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esMX")
 

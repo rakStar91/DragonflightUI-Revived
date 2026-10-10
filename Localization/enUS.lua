@@ -1249,5 +1249,17 @@ do
     L["OptionInCombat"] = "In Combat"
 end
 
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "Maximum Health. If your health reaches Zero, you will die."
+    L["StatsRunSpeed"] = "Run Speed"
+    L["StatsFlightSpeed"] = "Flight Speed"
+    L["StatsSwimSpeed"] = "Swim Speed"
+    L["StatsManaCasting"] = "Mana every 5s while casting"
+    L["StatsManaNotCasting"] = "Mana every 5s while not casting"
+    L["StatsCritAttacks"] = "Chance of attacks doing extra damage."
+    L["StatsCritSpells"] = "Chance of spells doing extra damage."
+end
+
 -- see comment above
 for k, v in pairs(L) do L_EN[k] = v; end

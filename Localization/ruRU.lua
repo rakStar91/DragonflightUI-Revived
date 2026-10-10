@@ -1228,5 +1228,17 @@ do
     L["OptionInCombat"] = "В бою"
 end
 
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "Максимальный запас здоровья. Если здоровье упадет до нуля, вы умрете."
+    L["StatsRunSpeed"] = "Скорость бега"
+    L["StatsFlightSpeed"] = "Скорость полета"
+    L["StatsSwimSpeed"] = "Скорость плавания"
+    L["StatsManaCasting"] = "Мана за 5 сек. при произнесении заклинаний"
+    L["StatsManaNotCasting"] = "Мана за 5 сек. без произнесения заклинаний"
+    L["StatsCritAttacks"] = "Вероятность того, что атаки нанесут дополнительный урон."
+    L["StatsCritSpells"] = "Вероятность того, что заклинания нанесут дополнительный урон."
+end
+
 -- see comment above
 for k, v in pairs(L) do L_RU[k] = v; end
