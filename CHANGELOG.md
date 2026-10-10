@@ -15,6 +15,8 @@ Small fixes for the minimized profession window and the guild news tab.
 - Fixed "Hide Minimap Buttons" not applying to buttons that register after login, so they stayed visible after a reload or relog.
 ### Quests
 - Fixed the "Show Questlevel" option not showing quest levels in the quest log on TBC Classic and Wrath Classic.
+### Character pane
+- Fixed the tooltips of the character stats (health, movement speed, mana regeneration, crit chance) staying in English on non-English clients.
 ### Guild
 - Fixed a Lua error when opening the guild news tab on Classic clients.
 

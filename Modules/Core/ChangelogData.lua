@@ -45,6 +45,11 @@ DF.ChangelogData = {
                     'Fixed the "Show Questlevel" option not showing quest levels in the quest log on TBC Classic and Wrath Classic.'
                 }
             }, {
+                title = 'Character pane',
+                items = {
+                    'Fixed the tooltips of the character stats (health, movement speed, mana regeneration, crit chance) staying in English on non-English clients.'
+                }
+            }, {
                 title = 'Guild',
                 items = {
                     'Fixed a Lua error when opening the guild news tab on Classic clients.'
