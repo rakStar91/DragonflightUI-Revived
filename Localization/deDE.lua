@@ -289,6 +289,8 @@ do
     L["CompatTDInspectDesc"] = "Fügt Kompatibilität für TDInspect bei aktiviertem modernem Charakterfenster hinzu."
     L["CompatWhatsTraining"] = "WhatsTraining"
     L["CompatWhatsTrainingDesc"] = "Fügt einen Reiter für WhatsTraining im modernen Zauberbuch hinzu."
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "Fügt Kompatibilität für AnglerAtlas bei aktiviertem modernem Zauberbuch hinzu."
 end
 
 -- __Settings

@@ -301,6 +301,8 @@ do
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] =
         "Adds compatibility for WhatsTraining when using the UI Module with 'Change SpellBook' enabled."
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "Adds compatibility for AnglerAtlas when using the UI Module with 'Change SpellBook' enabled."
 end
 
 -- __Settings

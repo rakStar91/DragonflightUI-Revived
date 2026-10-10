@@ -234,6 +234,8 @@ do
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] =
         "Добавляет совместимость с WhatsTraining при использовании модуля интерфейса с включенной опцией 'Изменить спеллбук'."
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "Добавляет совместимость с AnglerAtlas при использовании модуля интерфейса с включенной опцией 'Изменить спеллбук'."
 end
 
 -- __Settings

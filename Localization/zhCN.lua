@@ -228,6 +228,8 @@ do
     L['CompatTDInspectDesc'] = "当启用'修改角色窗口'时，为TDInspect添加兼容支持"
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] = "当启用'修改法术书'时，为WhatsTraining添加兼容支持"
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "当启用'修改法术书'时，为AnglerAtlas添加兼容支持"
 end
 
 -- __Settings

@@ -3,6 +3,10 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 function DF.Compatibility:WhatsTraining()
     -- print('DF.Compatibility:WhatsTraining()')
 
+    -- WhatsTraining uses the SkillLineTab slot MAX_SKILLLINE_TABS - 1 for its tab
+    local tab = _G['SpellBookSkillLineTab' .. (MAX_SKILLLINE_TABS - 1)]
+    if tab then DF.Compatibility:AddSpellbookTab('WhatsTraining', tab) end
+
     local base = 'Interface\\Addons\\DragonflightUI\\Textures\\UI\\'
 
     local function SpellBookFrame_UpdateSkillLineTabs_Hook()

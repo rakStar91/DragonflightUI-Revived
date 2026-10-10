@@ -217,6 +217,8 @@ do
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] =
         "Añade compatibilidad con WhatsTraining al usar el módulo de IU con 'Cambiar libro de hechizos' activado."
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "Añade compatibilidad con AnglerAtlas al usar el módulo de IU con 'Cambiar libro de hechizos' activado."
 end
 
 -- __Settings

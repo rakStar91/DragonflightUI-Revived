@@ -45,6 +45,11 @@ DF.ChangelogData = {
                     'Fixed the "Show Questlevel" option not showing quest levels in the quest log on TBC Classic and Wrath Classic.'
                 }
             }, {
+                title = 'Compatibility',
+                items = {
+                    'Added compatibility for the AnglerAtlas spellbook button: it now sits with the other tabs of the modern spellbook (Era and TBC, with "Change SpellBook" enabled).'
+                }
+            }, {
                 title = 'Character pane',
                 items = {
                     'Fixed the tooltips of the character stats (health, movement speed, mana regeneration, crit chance) staying in English on non-English clients.'
