@@ -12,6 +12,7 @@ local defaults = {
         scale = 1,
         general = {
             auctionator = true,
+            anglerAtlas = true,
             baganator = true,
             baganatorEquipment = true,
             bisTracker = true,
@@ -157,6 +158,12 @@ local compatOptions = {
             name = L["CompatWhatsTraining"],
             desc = L["CompatWhatsTrainingDesc"] .. getDefaultStr('whatstraining', 'general'),
             order = 21
+        },
+        anglerAtlas = {
+            type = 'toggle',
+            name = L["CompatAnglerAtlas"],
+            desc = L["CompatAnglerAtlasDesc"] .. getDefaultStr('anglerAtlas', 'general'),
+            order = 22
         }
     }
 }
@@ -414,6 +421,16 @@ function Module:ApplySettingsInternal(sub, key)
                     Module['tdinspect' .. 'Func'] = true
                     Module:FuncOrWaitframe('tdInspect', DF.Compatibility.TDInspect)
                 end
+            end)
+        end
+    end)
+
+    self:ConditionalOption('anglerAtlas', 'general', L['CompatAnglerAtlas'], function()
+        if UIModule['changeSpellBook' .. 'Hooked'] then
+            Module:FuncOrWaitframe('AnglerAtlas', DF.Compatibility.AnglerAtlas)
+        else
+            hooksecurefunc(DragonflightUIMixin, 'ChangeSpellbookEra', function()
+                Module:FuncOrWaitframe('AnglerAtlas', DF.Compatibility.AnglerAtlas)
             end)
         end
     end)

@@ -2,10 +2,25 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.50.0`.
+May 2026). Current builds report version `0.50.1`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.50.1 — Profession Window Fix (7 October 2026)
+Small fixes for the minimized profession window and the guild news tab.
+### Professions
+- Fixed the skill bar reappearing after crafting an item while the profession window is minimized.
+### Minimap
+- Fixed "Hide Minimap Buttons" not applying to buttons that register after login, so they stayed visible after a reload or relog.
+### Quests
+- Fixed the "Show Questlevel" option not showing quest levels in the quest log on TBC Classic and Wrath Classic.
+### Compatibility
+- Added compatibility for the AnglerAtlas spellbook button: it now sits with the other tabs of the modern spellbook (Era and TBC, with "Change SpellBook" enabled).
+### Character pane
+- Fixed the tooltips of the character stats (health, movement speed, mana regeneration, crit chance) staying in English on non-English clients.
+### Guild
+- Fixed a Lua error when opening the guild news tab on Classic clients.
 
 ## 0.50.0 — Nameplate Debuffs (6 October 2026)
 Enemy nameplates can now show other players' debuffs next to your own.

@@ -1,5 +1,6 @@
 ---@diagnostic disable: redundant-parameter
 local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
+local L = LibStub("AceLocale-3.0"):GetLocale("DragonflightUI")
 
 local ATTACK_SPEED_SECONDS = ATTACK_SPEED_SECONDS or 'Attack Speed (seconds)' -- Era
 
@@ -39,8 +40,7 @@ function DragonflightUICharacterStatsTbcMixin:AddStatsGeneral()
         descr = '..',
         func = function()
             local hp = UnitHealthMax('player');
-            return BreakUpLargeNumbers(hp), 'Health ' .. BreakUpLargeNumbers(hp),
-                   'Maximum Health. If your health reaches Zero, you will die.'
+            return BreakUpLargeNumbers(hp), HEALTH .. ' ' .. BreakUpLargeNumbers(hp), L['StatsHealthTooltip']
         end
     })
     -- self:RegisterElement('itemlvl', 'general', {
@@ -71,10 +71,10 @@ function DragonflightUICharacterStatsTbcMixin:AddStatsGeneral()
         end
         -- print('pad', strlen(pad))
 
-        newTable[1] = {left = 'Movement Speed' .. normalize(currentSpeed, pad)}
-        newTable[2] = {left = 'Run Speed', right = normalize(runSpeed)}
-        newTable[3] = {left = 'Flight Speed', right = normalize(flightSpeed)}
-        newTable[4] = {left = 'Swim Speed', right = normalize(swimSpeed)}
+        newTable[1] = {left = STAT_MOVEMENT_SPEED .. normalize(currentSpeed, pad)}
+        newTable[2] = {left = L['StatsRunSpeed'], right = normalize(runSpeed)}
+        newTable[3] = {left = L['StatsFlightSpeed'], right = normalize(flightSpeed)}
+        newTable[4] = {left = L['StatsSwimSpeed'], right = normalize(swimSpeed)}
 
         return newTable, currentSpeed;
     end
@@ -860,9 +860,9 @@ function DragonflightUICharacterStatsTbcMixin:AddStatsSpell()
             local newTable = {}
             newTable[1] = {left = MANA_REGEN}
             -- newTable[2] = {left = 'Mana every 5s', right = string.format(' %.2f', base * 5)}
-            -- newTable[3] = {left = 'Mana every 5s while casting', right = string.format(' %.2f', casting * 5)}
-            newTable[2] = {left = 'Mana every 5s while casting', right = BreakUpLargeNumbers(casting * 5)}
-            newTable[3] = {left = 'Mana every 5s while not casting', right = BreakUpLargeNumbers(base * 5)}
+            -- newTable[3] = {left = L['StatsManaCasting'], right = string.format(' %.2f', casting * 5)}
+            newTable[2] = {left = L['StatsManaCasting'], right = BreakUpLargeNumbers(casting * 5)}
+            newTable[3] = {left = L['StatsManaNotCasting'], right = BreakUpLargeNumbers(base * 5)}
 
             return newTable[3].right, nil, nil, newTable;
         end

@@ -234,6 +234,8 @@ do
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] =
         "Добавляет совместимость с WhatsTraining при использовании модуля интерфейса с включенной опцией 'Изменить спеллбук'."
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "Добавляет совместимость с AnglerAtlas при использовании модуля интерфейса с включенной опцией 'Изменить спеллбук'."
 end
 
 -- __Settings
@@ -1226,6 +1228,18 @@ do
     L["OptionNever"] = "Никогда"
     L["OptionAlways"] = "Всегда"
     L["OptionInCombat"] = "В бою"
+end
+
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "Максимальный запас здоровья. Если здоровье упадет до нуля, вы умрете."
+    L["StatsRunSpeed"] = "Скорость бега"
+    L["StatsFlightSpeed"] = "Скорость полета"
+    L["StatsSwimSpeed"] = "Скорость плавания"
+    L["StatsManaCasting"] = "Мана за 5 сек. при произнесении заклинаний"
+    L["StatsManaNotCasting"] = "Мана за 5 сек. без произнесения заклинаний"
+    L["StatsCritAttacks"] = "Вероятность того, что атаки нанесут дополнительный урон."
+    L["StatsCritSpells"] = "Вероятность того, что заклинания нанесут дополнительный урон."
 end
 
 -- see comment above

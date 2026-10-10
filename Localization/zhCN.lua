@@ -228,6 +228,8 @@ do
     L['CompatTDInspectDesc'] = "当启用'修改角色窗口'时，为TDInspect添加兼容支持"
     L['CompatWhatsTraining'] = "WhatsTraining"
     L['CompatWhatsTrainingDesc'] = "当启用'修改法术书'时，为WhatsTraining添加兼容支持"
+    L["CompatAnglerAtlas"] = "AnglerAtlas"
+    L["CompatAnglerAtlasDesc"] = "当启用'修改法术书'时，为AnglerAtlas添加兼容支持"
 end
 
 -- __Settings
@@ -1215,6 +1217,18 @@ do
     L["OptionNever"] = "从不"
     L["OptionAlways"] = "总是"
     L["OptionInCombat"] = "战斗中"
+end
+
+-- character stats tooltips
+do
+    L["StatsHealthTooltip"] = "最大生命值。如果你的生命值降为零,你就会死亡。"
+    L["StatsRunSpeed"] = "奔跑速度"
+    L["StatsFlightSpeed"] = "飞行速度"
+    L["StatsSwimSpeed"] = "游泳速度"
+    L["StatsManaCasting"] = "施法时每5秒法力回复"
+    L["StatsManaNotCasting"] = "非施法时每5秒法力回复"
+    L["StatsCritAttacks"] = "攻击造成额外伤害的几率。"
+    L["StatsCritSpells"] = "法术造成额外伤害的几率。"
 end
 
 -- see comment above
