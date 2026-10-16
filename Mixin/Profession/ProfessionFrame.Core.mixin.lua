@@ -88,6 +88,27 @@ local profs = {
     beast = 667,
     runeforging = 668
 }
+-- skillID -> base profession spell (name is identical across ranks)
+local professionSpellID = {
+    [171] = 2259, -- Alchemy
+    [164] = 2018, -- Blacksmithing
+    [182] = 2383, -- Herbalism (Find Herbs, not castable as tab)
+    [186] = 2580, -- Mining (Find Minerals, the tab casts Smelting 2656)
+    [333] = 7411, -- Enchanting
+    [202] = 4036, -- Engineering
+    [165] = 2108, -- Leatherworking
+    [393] = 8613, -- Skinning
+    [197] = 3908, -- Tailoring
+    [755] = 25229, -- Jewelcrafting
+    [773] = 45357, -- Inscription
+    [356] = 7620, -- Fishing
+    [185] = 2550, -- Cooking
+    [129] = 3273, -- First Aid
+    [666] = 2842, -- Poisons
+    [667] = 5149, -- Beast Training
+    [668] = 53428 -- Runeforging
+}
+DFProfessionMixin.ProfessionSpellID = professionSpellID
 for k, v in ipairs(primary) do profs.primary[v] = true end
 for k, v in ipairs(ignoredPrimary) do profs.ignoredPrimary[v] = true end
 
@@ -622,25 +643,18 @@ function DFProfessionMixin:SetupTabs()
             if not prof then return end
             if tabFrame.selectedTab == i then return end
 
-            local spellToCast = prof.nameLoc
-
-            if spellToCast == 'Costura' then
-                spellToCast = 'Sastrería'
-            elseif spellToCast == 'Marroquinería' then
-                spellToCast = 'Peletería'
-            elseif spellToCast == 'Minería' then
-                spellToCast = 'Fundiendo'
-                if DF.API.Version.IsTBC or DF.API.Version.IsMoP then spellToCast = 'Fundición' end
-                if DF.API.Version.IsClassic then spellToCast = 'Fundición' end
-            elseif spellToCast == 'Secourisme' then
-                spellToCast = 'Premiers soins'
-            end
-
-            if spellToCast == DragonflightUILocalizationData.DF_CHARACTER_PROFESSIONMINING then
-                spellToCast = DragonflightUILocalizationData.DF_PROFESSIONS_SMELTING
-            end
-
             if prof.skillID == 182 or prof.skillID == 393 then return end
+
+            -- Mining itself is not castable, Smelting opens the window
+            if prof.skillID == 186 then
+                CastSpellByID(2656)
+                return
+            end
+
+            -- The skill line name often differs from the spell name (esES: Costura/Sastrería, frFR: Secourisme/
+            -- Premiers soins), so take the localized spell name from the base spell ID instead of the skill line
+            local baseSpellID = professionSpellID[prof.skillID]
+            local spellToCast = (baseSpellID and GetSpellInfo(baseSpellID)) or prof.nameLoc
             CastSpellByName(spellToCast)
         end
 
