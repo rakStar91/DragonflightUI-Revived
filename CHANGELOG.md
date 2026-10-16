@@ -2,10 +2,16 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.50.1`.
+May 2026). Current builds report version `0.50.2`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.50.2 — Profession Names on Spanish & French Clients (17 October 2026)
+Profession tabs and the spellbook professions page now find the right spell on every client language.
+### Professions
+- Fixed the Mining tab not opening the smelting window on some Spanish clients (Classic Era).
+- Fixed profession tabs and the spellbook professions page using the wrong spell name on Spanish and French clients (for example tailoring, leatherworking, skinning and first aid).
 
 ## 0.50.1 — Profession Window Fix (7 October 2026)
 Small fixes for the minimized profession window and the guild news tab.

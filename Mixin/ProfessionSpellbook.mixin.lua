@@ -110,37 +110,21 @@ function DragonFlightUIProfessionSpellbookMixin:Update()
         local skillID = DragonflightUILocalizationData:GetSkillIDFromProfessionName(nameLoc)
         -- print('L:', nameLoc, skillRank, ' - ', skillID)
 
-        -- @TODO - fix for spanish inconsistent names on Era
-        if nameLoc == 'Desollar' then
-            nameLoc = 'Desollando' -- skinning
-            -- print('Desollar')
-        elseif nameLoc == 'Costura' then
-            nameLoc = 'Sastrería' -- tailoring
-        elseif nameLoc == 'Marroquinería' then
-            nameLoc = 'Peletería' -- tailoring
-        end
-
-        -- @TODO - same with french
-        if nameLoc == 'Secourisme' then
-            nameLoc = 'Premiers soins' -- first aid            
-        end
-
         if skillID then
             --
             -- print(nameLoc, skillRank, skillID)
+
+            -- The skill line name can differ from the spellbook spell name (esES/frFR), so take the spell name
+            local baseSpellID = DFProfessionMixin.ProfessionSpellID[skillID]
+            if baseSpellID then nameLoc = GetSpellInfo(baseSpellID) or nameLoc end
 
             local profDataTable = DFProfessionMixin.ProfessionDataTable[skillID]
             local texture = profDataTable.icon
             local spellIcon = texture
 
-            if skillID == 182 then
-                -- herbalism
-                local name, rank, icon, castTime, minRange, maxRange, spellID, originalIcon = GetSpellInfo(2383)
-                nameLoc = name
-                spellIcon = icon
-            elseif skillID == 186 then
-                -- mining
-                local name, rank, icon, castTime, minRange, maxRange, spellID, originalIcon = GetSpellInfo(2580)
+            if skillID == 182 or skillID == 186 then
+                -- herbalism / mining: the spellbook entry is the tracking spell (Find Herbs / Find Minerals)
+                local name, rank, icon = GetSpellInfo(baseSpellID)
                 nameLoc = name
                 spellIcon = icon
             end

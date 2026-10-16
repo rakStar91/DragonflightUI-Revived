@@ -24,6 +24,20 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- just the one after it.
 DF.ChangelogData = {
     {
+        version = '0.50.2',
+        title = 'Profession Names on Spanish & French Clients',
+        date = '17 October 2026',
+        intro = 'Profession tabs and the spellbook professions page now find the right spell on every client language.',
+        sections = {
+            {
+                title = 'Professions',
+                items = {
+                    'Fixed the Mining tab not opening the smelting window on some Spanish clients (Classic Era).',
+                    'Fixed profession tabs and the spellbook professions page using the wrong spell name on Spanish and French clients (for example tailoring, leatherworking, skinning and first aid).'
+                }
+            }
+        }
+    }, {
         version = '0.50.1',
         title = 'Profession Window Fix',
         date = '7 October 2026',
