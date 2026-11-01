@@ -185,16 +185,16 @@
 			</Layer>
 			<Layer level="ARTWORK">
 				<FontString name="$parentText" inherits="GameFontNormalLeft" parentKey="text">
-					<Size x="98" y="38" />
+					<Size x="80" y="38" />
 					<Anchors>
-						<Anchor point="LEFT" x="44" />
+						<Anchor point="LEFT" x="62" />
 					</Anchors>
 				</FontString>
 			</Layer>
 			<Layer level="OVERLAY" textureSubLevel="-2">
 				<Texture parentKey="SpecRing" atlas="equipmentmanager-spec-border" useAtlasSize="true">
 					<Anchors>
-						<Anchor point="TOPLEFT" x="18" y="-18" />
+						<Anchor point="TOPLEFT" x="36" y="-18" />
 					</Anchors>
 				</Texture>
 			</Layer>
@@ -218,7 +218,88 @@
 			</Layer>
 		</Layers>
 		<Frames>
-			<Button name="$parentDeleteButton" parentKey="DeleteButton" hidden="true">
+				<!-- reorder strip: always visible, art is the Blizzard MinimalScrollBar stepper (17x11); states handled in the mixin -->
+				<Button name="$parentMoveUpButton" parentKey="MoveUpButton" hidden="true">
+					<Size x="19" y="21" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="1" y="-1" />
+					</Anchors>
+					<KeyValues>
+						<KeyValue key="moveOffset" value="-1" type="number" />
+					</KeyValues>
+					<Layers>
+						<Layer level="ARTWORK">
+							<Texture parentKey="bg" setAllPoints="true">
+								<Color r="1" g="0.82" b="0" a="0.07" />
+							</Texture>
+						</Layer>
+						<Layer level="OVERLAY">
+							<Texture parentKey="texture" atlas="minimal-scrollbar-arrow-top" useAtlasSize="true">
+								<Anchors>
+									<Anchor point="CENTER" />
+								</Anchors>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnEnter>
+							self:GetParent():OnMoveButtonEnter(self);
+						</OnEnter>
+						<OnLeave>
+							self:GetParent():OnMoveButtonLeave(self);
+						</OnLeave>
+						<OnMouseDown>
+							self:GetParent():OnMoveButtonMouseDown(self);
+						</OnMouseDown>
+						<OnMouseUp>
+							self:GetParent():OnMoveButtonMouseUp(self);
+						</OnMouseUp>
+						<OnClick>
+							self:GetParent():OnMoveButtonClick(self.moveOffset);
+						</OnClick>
+					</Scripts>
+				</Button>
+				<Button name="$parentMoveDownButton" parentKey="MoveDownButton" hidden="true">
+					<Size x="19" y="21" />
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="1" y="1" />
+					</Anchors>
+					<KeyValues>
+						<KeyValue key="moveOffset" value="1" type="number" />
+					</KeyValues>
+					<Layers>
+						<Layer level="ARTWORK">
+							<Texture parentKey="bg" setAllPoints="true">
+								<Color r="1" g="0.82" b="0" a="0.07" />
+							</Texture>
+						</Layer>
+						<Layer level="OVERLAY">
+							<Texture parentKey="texture" atlas="minimal-scrollbar-arrow-bottom" useAtlasSize="true">
+								<Anchors>
+									<Anchor point="CENTER" />
+								</Anchors>
+							</Texture>
+						</Layer>
+					</Layers>
+					<Scripts>
+						<OnEnter>
+							self:GetParent():OnMoveButtonEnter(self);
+						</OnEnter>
+						<OnLeave>
+							self:GetParent():OnMoveButtonLeave(self);
+						</OnLeave>
+						<OnMouseDown>
+							self:GetParent():OnMoveButtonMouseDown(self);
+						</OnMouseDown>
+						<OnMouseUp>
+							self:GetParent():OnMoveButtonMouseUp(self);
+						</OnMouseUp>
+						<OnClick>
+							self:GetParent():OnMoveButtonClick(self.moveOffset);
+						</OnClick>
+					</Scripts>
+				</Button>
+				<Button name="$parentDeleteButton" parentKey="DeleteButton" hidden="true">
 				<Size x="14" y="14" />
 				<Anchors>
 					<Anchor point="BOTTOMRIGHT" x="-2" y="2" />
@@ -292,7 +373,7 @@
 		<NormalTexture name="$parentIcon" parentKey="icon">
 			<Size x="36" y="36" />
 			<Anchors>
-				<Anchor point="LEFT" x="4" y="0" />
+				<Anchor point="LEFT" x="22" y="0" />
 			</Anchors>
 		</NormalTexture>
 	</Button>

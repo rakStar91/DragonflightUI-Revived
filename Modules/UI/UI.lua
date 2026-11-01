@@ -39,7 +39,9 @@ local defaults = {
             x = 0,
             y = -10
         }
-    }
+    },
+    -- char, not profile: equipment set IDs belong to the character, a shared profile would mix them up
+    char = {equipmentSetOrder = {}}
 }
 
 if DF.Wrath and not DF.Cata then
