@@ -24,6 +24,20 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- just the one after it.
 DF.ChangelogData = {
     {
+        version = '0.51.0',
+        title = 'Reorder Equipment Sets',
+        date = '1 November 2026',
+        intro = 'Equipment sets in the character panel can now be sorted the way you like.',
+        sections = {
+            {
+                title = 'Character pane',
+                items = {
+                    'Added up and down arrows to every equipment set to change the order of the list. The first set can\'t move up and the last can\'t move down, so those arrows are greyed out.',
+                    'The order is saved per character. Until you move a set, your sets stay in alphabetical order.'
+                }
+            }
+        }
+    }, {
         version = '0.50.2',
         title = 'Profession Names on Spanish & French Clients',
         date = '17 October 2026',

@@ -1231,5 +1231,11 @@ do
     L["StatsCritSpells"] = "法术造成额外伤害的几率。"
 end
 
+-- equipment manager
+do
+    L["EquipmentSetMoveUp"] = "上移"
+    L["EquipmentSetMoveDown"] = "下移"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_CN[k] = v; end

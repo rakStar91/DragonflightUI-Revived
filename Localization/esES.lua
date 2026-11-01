@@ -1239,6 +1239,12 @@ do
     L["StatsCritSpells"] = "Probabilidad de que los hechizos causen daño adicional."
 end
 
+-- equipment manager
+do
+    L["EquipmentSetMoveUp"] = "Subir"
+    L["EquipmentSetMoveDown"] = "Bajar"
+end
+
 local L_ES = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esES")
 local L_MX = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esMX")
 

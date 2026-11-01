@@ -1242,5 +1242,11 @@ do
     L["StatsCritSpells"] = "Вероятность того, что заклинания нанесут дополнительный урон."
 end
 
+-- equipment manager
+do
+    L["EquipmentSetMoveUp"] = "Переместить вверх"
+    L["EquipmentSetMoveDown"] = "Переместить вниз"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_RU[k] = v; end

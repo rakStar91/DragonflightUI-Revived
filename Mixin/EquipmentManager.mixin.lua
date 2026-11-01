@@ -1,5 +1,13 @@
 ---@diagnostic disable: redundant-parameter
 local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
+local L = LibStub("AceLocale-3.0"):GetLocale("DragonflightUI")
+
+-- the UI module is created after this file loads, so resolve it lazily
+local function GetSetOrderDB()
+    local UIModule = DF:GetModule('UI', true)
+    local db = UIModule and UIModule.db and UIModule.db.char
+    return db and db.equipmentSetOrder
+end
 
 -- from paperdoll
 local itemSlotButtons = {};
@@ -363,7 +371,8 @@ function DragonflightUIEquipmentManagerPanelMixin:Update(equipmentSetsDirty)
 
     if (equipmentSetsDirty) then
         -- self.equipmentSetIDs = self:SortEquipmentSetIDs(C_EquipmentSet.GetEquipmentSetIDs());
-        self.equipmentSetIDs = self:SortEquipmentSetIDsByName(C_EquipmentSet.GetEquipmentSetIDs()); -- custom
+        local sortedByName = self:SortEquipmentSetIDsByName(C_EquipmentSet.GetEquipmentSetIDs()); -- custom
+        self.equipmentSetIDs = self:ApplyCustomSetOrder(sortedByName);
     end
 
     -- DevTools_Dump(self.equipmentSetIDs)
@@ -435,6 +444,57 @@ function DragonflightUIEquipmentManagerPanelMixin:SortEquipmentSetIDsByName(equi
     return sortedIDs;
 end
 
+-- custom: the saved order wins, sets without a saved position (new ones) follow in name order
+function DragonflightUIEquipmentManagerPanelMixin:ApplyCustomSetOrder(nameSortedIDs)
+    local savedOrder = GetSetOrderDB();
+    if (not savedOrder or #savedOrder == 0) then return nameSortedIDs; end
+
+    local existing = {};
+    for _, setID in ipairs(nameSortedIDs) do existing[setID] = true; end
+
+    local orderedIDs = {};
+    local placed = {};
+    for _, setID in ipairs(savedOrder) do
+        -- deleted sets stay in the saved list until the next move, skip them here
+        if (existing[setID] and not placed[setID]) then
+            orderedIDs[#orderedIDs + 1] = setID;
+            placed[setID] = true;
+        end
+    end
+
+    for _, setID in ipairs(nameSortedIDs) do
+        if (not placed[setID]) then orderedIDs[#orderedIDs + 1] = setID; end
+    end
+
+    return orderedIDs;
+end
+
+function DragonflightUIEquipmentManagerPanelMixin:MoveSet(setID, offset)
+    local setIDs = self.equipmentSetIDs;
+    local savedOrder = GetSetOrderDB();
+    if (not setIDs or not savedOrder) then return; end
+
+    local from;
+    for index, id in ipairs(setIDs) do
+        if (id == setID) then
+            from = index;
+            break
+        end
+    end
+
+    local to = from and (from + offset);
+    if (not to or to < 1 or to > #setIDs) then return; end
+
+    setIDs[from], setIDs[to] = setIDs[to], setIDs[from];
+
+    -- persist the whole visible order, not just the swapped pair, so later renames or new sets cannot reshuffle it
+    wipe(savedOrder);
+    for index, id in ipairs(setIDs) do savedOrder[index] = id; end
+
+    PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+    self:Update();
+end
+
 function DragonflightUIEquipmentManagerPanelMixin:SetButtonSelected(button, selected)
     if selected then
         button.SelectedBar:Show();
@@ -447,11 +507,12 @@ function DragonflightUIEquipmentManagerPanelMixin:InitButton(button, elementData
     -- print('InitButton')
     if elementData.addSetButton then
         button.setID = nil;
+        button:SetMoveButtonsState(false, false, false);
         button.text:SetText(PAPERDOLL_NEWEQUIPMENTSET);
         button.text:SetTextColor(GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b);
         button.icon:SetTexture("Interface\\PaperDollInfoFrame\\Character-Plus");
         button.icon:SetSize(30, 30);
-        button.icon:SetPoint("LEFT", 7, 0);
+        button.icon:SetPoint("LEFT", 25, 0);
         button.Check:Hide();
         button.SelectedBar:Hide();
         SetClampedTextureRotation(button.BgBottom, 180);
@@ -463,6 +524,8 @@ function DragonflightUIEquipmentManagerPanelMixin:InitButton(button, elementData
         local numRows = #equipmentSetIDs;
         local name, texture, setID, isEquipped, _, _, _, numLost = C_EquipmentSet.GetEquipmentSetInfo(equipmentSetIndex);
         button.setID = setID;
+        -- first row can't go up, last row can't go down: the arrow stays visible but greyed out
+        button:SetMoveButtonsState(true, index > 1, index < numRows);
         button.text:SetText(name);
         if (numLost > 0) then
             button.text:SetTextColor(RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b);
@@ -485,7 +548,8 @@ function DragonflightUIEquipmentManagerPanelMixin:InitButton(button, elementData
             button.Check:Hide();
         end
         button.icon:SetSize(36, 36);
-        button.icon:SetPoint("LEFT", 4, 0);
+        -- 18px further right than Blizzard's layout to leave room for the reorder strip on the left edge
+        button.icon:SetPoint("LEFT", 22, 0);
 
         if (index == 1) then
             button.BgTop:Show();
@@ -495,7 +559,8 @@ function DragonflightUIEquipmentManagerPanelMixin:InitButton(button, elementData
             button.BgMiddle:SetPoint("TOP");
         end
 
-        if (equipmentSetIndex == numRows) then
+        -- compare the row position, not the set ID, otherwise a reordered list draws the bottom cap on the wrong row
+        if (index == numRows) then
             button.BgBottom:Show();
             button.BgMiddle:SetPoint("BOTTOM", button.BgBottom, "TOP");
         else
@@ -615,6 +680,87 @@ end
 
 function DragonflightUIGearSetButtonMixin:OnLeave()
     GameTooltip:Hide();
+end
+
+function DragonflightUIGearSetButtonMixin:OnMoveButtonClick(offset)
+    if (self.setID) then self.PanelRef:MoveSet(self.setID, offset); end
+end
+
+-- same arrows Blizzard's MinimalScrollBar uses for its steppers (see MinimalScrollBarStepperScriptsMixin:GetAtlas)
+local MOVE_BUTTON_ATLAS = {
+    [-1] = {
+        normal = 'minimal-scrollbar-arrow-top',
+        over = 'minimal-scrollbar-arrow-top-over',
+        down = 'minimal-scrollbar-arrow-top-down'
+    },
+    [1] = {
+        normal = 'minimal-scrollbar-arrow-bottom',
+        over = 'minimal-scrollbar-arrow-bottom-over',
+        down = 'minimal-scrollbar-arrow-bottom-down'
+    }
+}
+
+function DragonflightUIGearSetButtonMixin:RefreshMoveButton(moveButton)
+    local enabled = moveButton:IsEnabled();
+    local atlas = MOVE_BUTTON_ATLAS[moveButton.moveOffset];
+    local name = atlas.normal;
+    if (enabled) then
+        if (moveButton.isDown) then
+            name = atlas.down;
+        elseif (moveButton.isOver) then
+            name = atlas.over;
+        end
+    end
+
+    moveButton.texture:SetAtlas(name, true);
+    -- the scrollbar has no disabled art either, it desaturates the normal arrow
+    moveButton.texture:SetDesaturated(not enabled);
+    moveButton.texture:SetAlpha(enabled and 1 or 0.5);
+    moveButton.bg:SetColorTexture(1, 0.82, 0, (enabled and moveButton.isOver) and 0.22 or 0.07);
+
+    local pushed = enabled and moveButton.isDown;
+    moveButton.texture:SetPoint('CENTER', pushed and 1 or 0, pushed and -1 or 0);
+end
+
+-- the buttons are pooled with their row, so always reset the mouse state too
+function DragonflightUIGearSetButtonMixin:ResetMoveButton(moveButton, shown, enabled)
+    moveButton.isOver = false;
+    moveButton.isDown = false;
+    moveButton:SetShown(shown);
+    moveButton:SetEnabled(enabled);
+    self:RefreshMoveButton(moveButton);
+end
+
+function DragonflightUIGearSetButtonMixin:SetMoveButtonsState(shown, canMoveUp, canMoveDown)
+    self:ResetMoveButton(self.MoveUpButton, shown, canMoveUp);
+    self:ResetMoveButton(self.MoveDownButton, shown, canMoveDown);
+end
+
+function DragonflightUIGearSetButtonMixin:OnMoveButtonEnter(moveButton)
+    moveButton.isOver = true;
+    self:RefreshMoveButton(moveButton);
+
+    if (moveButton:IsEnabled()) then
+        GameTooltip:SetOwner(moveButton, "ANCHOR_RIGHT");
+        GameTooltip:SetText(moveButton.moveOffset < 0 and L["EquipmentSetMoveUp"] or L["EquipmentSetMoveDown"]);
+    end
+end
+
+function DragonflightUIGearSetButtonMixin:OnMoveButtonLeave(moveButton)
+    moveButton.isOver = false;
+    moveButton.isDown = false;
+    self:RefreshMoveButton(moveButton);
+    GameTooltip:Hide();
+end
+
+function DragonflightUIGearSetButtonMixin:OnMoveButtonMouseDown(moveButton)
+    moveButton.isDown = true;
+    self:RefreshMoveButton(moveButton);
+end
+
+function DragonflightUIGearSetButtonMixin:OnMoveButtonMouseUp(moveButton)
+    moveButton.isDown = false;
+    self:RefreshMoveButton(moveButton);
 end
 
 function DragonflightUIGearSetButtonMixin:OnDragStart()
