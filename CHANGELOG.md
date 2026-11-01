@@ -2,10 +2,16 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.50.2`.
+May 2026). Current builds report version `0.51.0`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.51.0 — Reorder Equipment Sets (1 November 2026)
+Equipment sets in the character panel can now be sorted the way you like.
+### Character pane
+- Added up and down arrows to every equipment set to change the order of the list. The first set can't move up and the last can't move down, so those arrows are greyed out.
+- The order is saved per character. Until you move a set, your sets stay in alphabetical order.
 
 ## 0.50.2 — Profession Names on Spanish & French Clients (17 October 2026)
 Profession tabs and the spellbook professions page now find the right spell on every client language.
