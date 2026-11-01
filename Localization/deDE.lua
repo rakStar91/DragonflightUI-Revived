@@ -1235,6 +1235,12 @@ do
     L["StatsCritSpells"] = "Chance, dass Zauber zusätzlichen Schaden verursachen."
 end
 
+-- equipment manager
+do
+    L["EquipmentSetMoveUp"] = "Nach oben"
+    L["EquipmentSetMoveDown"] = "Nach unten"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_DE[k] = v; end
 

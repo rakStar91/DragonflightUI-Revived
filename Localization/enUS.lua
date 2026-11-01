@@ -1263,5 +1263,11 @@ do
     L["StatsCritSpells"] = "Chance of spells doing extra damage."
 end
 
+-- equipment manager
+do
+    L["EquipmentSetMoveUp"] = "Move Up"
+    L["EquipmentSetMoveDown"] = "Move Down"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_EN[k] = v; end
