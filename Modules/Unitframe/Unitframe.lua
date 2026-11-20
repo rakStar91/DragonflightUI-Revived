@@ -609,7 +609,11 @@ function Module:AddRoleSelectDropdownOption()
     end
 
     local function incombatWarning()
-        Module:Print("Can't set role in combat through addon code, sorry.")
+        Module:Print(L["RoleMenuCombatWarning"])
+    end
+
+    local function roleText(texCoords, text)
+        return '|TInterface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES:16:16:0:0:64:64:' .. texCoords .. '|t ' .. text
     end
 
     local function addMenu(ownerRegion, rootDescription, contextData)
@@ -626,13 +630,13 @@ function Module:AddRoleSelectDropdownOption()
             rootDescription:CreateDivider()
             rootDescription:CreateTitle("DragonflightUI")
 
-            submenu = rootDescription:CreateButton('Select Role')
+            submenu = rootDescription:CreateButton(L["RoleMenuSelectRole"])
         else
             local tit = MenuUtil.CreateTitle('DragonflightUI')
             rootDescription:Insert(tit, 2)
 
             ---@diagnostic disable-next-line: missing-parameter
-            submenu = MenuUtil.CreateButton('Select Role')
+            submenu = MenuUtil.CreateButton(L["RoleMenuSelectRole"])
             rootDescription:Insert(submenu, 3)
 
             local div = MenuUtil.CreateDivider()
@@ -648,46 +652,40 @@ function Module:AddRoleSelectDropdownOption()
             submenu:SetEnabled(false);
         end
 
-        local tank = submenu:CreateRadio(
-                         '|TInterface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES:16:16:0:0:64:64:0:19:22:41|t ' .. 'Tank',
-                         function()
-                return UnitGroupRolesAssigned(unit) == 'TANK'
-            end, function()
-                if InCombatLockdown() then
-                    incombatWarning();
-                    return;
-                end
-                UnitSetRole(unit, 'TANK')
-            end)
+        local tank = submenu:CreateRadio(roleText('0:19:22:41', L["RoleMenuTank"]), function()
+            return UnitGroupRolesAssigned(unit) == 'TANK'
+        end, function()
+            if InCombatLockdown() then
+                incombatWarning();
+                return;
+            end
+            UnitSetRole(unit, 'TANK')
+        end)
         if not canUnitClassBeRole(unit, 'TANK') then tank:SetEnabled(false) end
 
-        local heal = submenu:CreateRadio(
-                         '|TInterface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES:16:16:0:0:64:64:20:39:1:20|t ' .. 'Healer',
-                         function()
-                return UnitGroupRolesAssigned(unit) == 'HEALER'
-            end, function()
-                if InCombatLockdown() then
-                    incombatWarning();
-                    return;
-                end
-                UnitSetRole(unit, 'HEALER')
-            end)
+        local heal = submenu:CreateRadio(roleText('20:39:1:20', L["RoleMenuHealer"]), function()
+            return UnitGroupRolesAssigned(unit) == 'HEALER'
+        end, function()
+            if InCombatLockdown() then
+                incombatWarning();
+                return;
+            end
+            UnitSetRole(unit, 'HEALER')
+        end)
         if not canUnitClassBeRole(unit, 'HEALER') then heal:SetEnabled(false) end
 
-        local dd = submenu:CreateRadio(
-                       '|TInterface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES:16:16:0:0:64:64:20:39:22:41|t ' .. 'Damage',
-                       function()
-                return UnitGroupRolesAssigned(unit) == 'DAMAGER'
-            end, function()
-                if InCombatLockdown() then
-                    incombatWarning();
-                    return;
-                end
-                UnitSetRole(unit, 'DAMAGER')
-            end)
+        local dd = submenu:CreateRadio(roleText('20:39:22:41', L["RoleMenuDamage"]), function()
+            return UnitGroupRolesAssigned(unit) == 'DAMAGER'
+        end, function()
+            if InCombatLockdown() then
+                incombatWarning();
+                return;
+            end
+            UnitSetRole(unit, 'DAMAGER')
+        end)
         -- if not canUnitClassBeRole(unit, 'DAMAGER') then dd:SetEnabled(false) end
 
-        local noRole = submenu:CreateRadio('No Role', function()
+        local noRole = submenu:CreateRadio(L["RoleMenuNoRole"], function()
             return UnitGroupRolesAssigned(unit) == 'NONE'
         end, function()
             if InCombatLockdown() then

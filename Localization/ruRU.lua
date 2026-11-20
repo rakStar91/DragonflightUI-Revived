@@ -1248,5 +1248,15 @@ do
     L["EquipmentSetMoveDown"] = "Переместить вниз"
 end
 
+-- role select menu (unit context menu)
+do
+    L["RoleMenuSelectRole"] = "Выбрать роль"
+    L["RoleMenuTank"] = "Танк"
+    L["RoleMenuHealer"] = "Лекарь"
+    L["RoleMenuDamage"] = "Урон"
+    L["RoleMenuNoRole"] = "Без роли"
+    L["RoleMenuCombatWarning"] = "Нельзя назначить роль в бою через аддон."
+end
+
 -- see comment above
 for k, v in pairs(L) do L_RU[k] = v; end

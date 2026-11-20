@@ -1245,6 +1245,16 @@ do
     L["EquipmentSetMoveDown"] = "Bajar"
 end
 
+-- role select menu (unit context menu)
+do
+    L["RoleMenuSelectRole"] = "Seleccionar rol"
+    L["RoleMenuTank"] = "Tanque"
+    L["RoleMenuHealer"] = "Sanador"
+    L["RoleMenuDamage"] = "Daño"
+    L["RoleMenuNoRole"] = "Sin rol"
+    L["RoleMenuCombatWarning"] = "No se puede asignar un rol en combate desde un addon."
+end
+
 local L_ES = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esES")
 local L_MX = LibStub("AceLocale-3.0"):NewLocale("DragonflightUI", "esMX")
 

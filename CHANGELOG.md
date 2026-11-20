@@ -2,10 +2,17 @@
 
 DragonflightUI Revived — the community-maintained continuation of
 DragonflightUI Classic, picking up after upstream's last release (v0.40.3,
-May 2026). Current builds report version `0.51.0`.
+May 2026). Current builds report version `0.51.1`.
 
 Everything before v0.40.3 is in
 [upstream's releases](https://github.com/Karl-HeinzSchneider/WoW-DragonflightUI/releases).
+
+## 0.51.1 — Nameplate & Role Menu Fixes (20 November 2026)
+Two small fixes for raids and non-English clients.
+### Nameplates
+- Fixed an error spam from friendly nameplates inside dungeons and raids (for example during Kel'Thuzad).
+### Unitframes
+- The "Select Role" entry in the right-click menu of players and its options (Tank, Healer, Damage, No Role) are now translated.
 
 ## 0.51.0 — Reorder Equipment Sets (1 November 2026)
 Equipment sets in the character panel can now be sorted the way you like.
