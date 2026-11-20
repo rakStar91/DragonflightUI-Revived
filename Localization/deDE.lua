@@ -1241,6 +1241,16 @@ do
     L["EquipmentSetMoveDown"] = "Nach unten"
 end
 
+-- role select menu (unit context menu)
+do
+    L["RoleMenuSelectRole"] = "Rolle wählen"
+    L["RoleMenuTank"] = "Tank"
+    L["RoleMenuHealer"] = "Heiler"
+    L["RoleMenuDamage"] = "Schaden"
+    L["RoleMenuNoRole"] = "Keine Rolle"
+    L["RoleMenuCombatWarning"] = "Rollen können im Kampf nicht per Addon gesetzt werden."
+end
+
 -- see comment above
 for k, v in pairs(L) do L_DE[k] = v; end
 

@@ -1237,5 +1237,15 @@ do
     L["EquipmentSetMoveDown"] = "下移"
 end
 
+-- role select menu (unit context menu)
+do
+    L["RoleMenuSelectRole"] = "选择职责"
+    L["RoleMenuTank"] = "坦克"
+    L["RoleMenuHealer"] = "治疗"
+    L["RoleMenuDamage"] = "伤害输出"
+    L["RoleMenuNoRole"] = "无职责"
+    L["RoleMenuCombatWarning"] = "战斗中无法通过插件设置职责。"
+end
+
 -- see comment above
 for k, v in pairs(L) do L_CN[k] = v; end
