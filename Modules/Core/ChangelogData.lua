@@ -24,6 +24,24 @@ local DF = LibStub('AceAddon-3.0'):GetAddon('DragonflightUI')
 -- just the one after it.
 DF.ChangelogData = {
     {
+        version = '0.51.1',
+        title = 'Nameplate & Role Menu Fixes',
+        date = '20 November 2026',
+        intro = 'Two small fixes for raids and non-English clients.',
+        sections = {
+            {
+                title = 'Nameplates',
+                items = {
+                    'Fixed an error spam from friendly nameplates inside dungeons and raids (for example during Kel\'Thuzad).'
+                }
+            }, {
+                title = 'Unitframes',
+                items = {
+                    'The "Select Role" entry in the right-click menu of players and its options (Tank, Healer, Damage, No Role) are now translated.'
+                }
+            }
+        }
+    }, {
         version = '0.51.0',
         title = 'Reorder Equipment Sets',
         date = '1 November 2026',
