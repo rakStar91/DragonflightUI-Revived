@@ -315,6 +315,9 @@ end
 local function UpdateLevelText(uf, unit)
     if not (uf and uf.name and unit) then return end
 
+    -- forbidden plates (friendly units in instances) throw "bad self" on any method call
+    if uf.IsForbidden and uf:IsForbidden() then return end
+
     local styling = Module.db and Module.db.profile.styleTexture
 
     if not styling or StyleDrawsOwnLevel() then
